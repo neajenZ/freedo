@@ -1,27 +1,28 @@
-# React + TypeScript + Vite
+# FREEDO - React + TypeScript + Vite + ReduxToolkit + fsd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Соглашение по веткам
 
-Currently, two official plugins are available:
+- git branch <category/reference/description-in-kebab-case>
+- пример: git branch <feature/FE-68/migrate-to-vite>
+- category (feature, fix, hotfix, test)
+- reference (ссылка на задачу в notion)
+- description (краткое описание задачи через дефис)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Соглашение по коммитам
 
-## Expanding the ESLint configuration
+- git commit -m 'feat: завез сборщик vite'
+- git commit -m 'fix: поправил тесты'
+- category (feat, fix, refactor)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Соглашение по code style
 
-- Configure the top-level `parserOptions` property like this:
+- Пропсы компонента деструктуризируем внутри самого компонента
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Доки по стеку
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- react: https://react.dev/
+- vite: https://vitejs.dev/guide/
+- redux-toolkit: https://redux-toolkit.js.org/tutorials/quick-start
+- fsd architecture: https://feature-sliced.design/ru/docs/get-started/overview
+- react-hook-form: https://react-hook-form.com/
+- коммиты: https://www.conventionalcommits.org/
