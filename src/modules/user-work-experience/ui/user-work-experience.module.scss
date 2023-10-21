@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  align-items: start;
+  gap: 43px;
+}
+
+.card {
+  width: 1160px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.container {
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}

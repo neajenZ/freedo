@@ -1,0 +1,31 @@
+@import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  background-color: black;
+  font-family: "Inter", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.swiper-slide {
+  height: 100% !important;
+}
+
+.swiper-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: unset !important;
+  border-radius: inherit !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  content: "" !important;
+}
