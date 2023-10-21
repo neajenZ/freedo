@@ -1,0 +1,122 @@
+// STARS
+.main {
+  display: flex;
+  gap: 15px;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.label::before {
+  //content: url("../../../../assets/images/star.svg");
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.input:checked + .label::before {
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //content: url("../../../../assets/images/star.svg");
+  background-color: yellow;
+}
+
+// PHOTO LOADER
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 192px;
+  height: 130px;
+}
+
+// COMMENT-FORM
+
+.main {
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 4px solid rgba(88, 93, 251, 1);
+}
+
+.content {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.title {
+  //@include text-bold($text-bold, $color-black-99101);
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.titleItem {
+  width: 136px;
+  //@include text-semiBold($text-semiBold, $color-black-99101);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.block {
+  display: flex;
+  gap: 33px;
+}
+
+.clue {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.text {
+  //@include text-semiBold($text-large-light, $color-gray);
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(78, 86, 98, 1);
+  max-width: 327px;
+  line-height: 19.2px;
+}
+
+.area {
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 2px solid rgba(17, 16, 17, 1);
+  width: 748px;
+  height: 200px;
+  resize: none;
+  //@include text-semiBold($text-normal-18, $color-black);
+  font-weight: 500;
+  font-size: 18px;
+
+  &::placeholder {
+    color: rgba(78, 86, 98, 1);
+    //@include text-semiBold($text-normal-18, $color-gray);
+    font-weight: 500;
+    font-size: 18px;
+  }
+}
