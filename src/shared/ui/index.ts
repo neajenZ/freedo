@@ -1,1 +1,1 @@
-export { default as Card } from "./card/Card";
+export { default as Popup } from "./popup/popup";

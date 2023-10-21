@@ -1,0 +1,59 @@
+.main {
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+
+.item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 29px;
+  border-radius: 40px;
+  border: 1px solid rgba(9, 9, 10, 1);
+}
+
+.img {
+  height: 19px;
+  width: 29px;
+}
+
+.popup {
+  width: 201px;
+}
+
+.wrapper {
+  padding: 20px;
+}
+
+.head {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.allLang {
+  //@include text-semiBold($text-large, $color-black-99101)
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.x {
+  cursor: pointer;
+  border-radius: 40px;
+  border: 1px solid rgba(9, 9, 10, 1);
+  padding: 5px 10px 0 10px;
+}
+
+.langs {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item {
+}

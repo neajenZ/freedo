@@ -1,0 +1,50 @@
+.profile {
+  width: 480px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.views {
+  //@include text-bold($text-normal, $color-gray)
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(78, 86, 98, 1);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  //@include text-semiBold($text-large, $color-gray)
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(78, 86, 98, 1);
+}
+
+.name {
+  //@include text-bold($text-bold, $color-black-99101);
+  font-weight: 700;
+  font-size: 30px;
+}
