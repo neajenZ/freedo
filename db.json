@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 12345,
+      "email": "rafamartinez72@example.com",
+      "first_name": "Rafael",
+      "last_name": "Martinez",
+      "photo_url": "https://api.freedo.com/photo/3624",
+      "date_of_registration": "18/12/1998"
+    }
+  ]
+}
