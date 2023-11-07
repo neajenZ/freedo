@@ -1,5 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "src/shared/api";
+import { RegisterRequest } from "./auth-api.types";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -13,7 +14,7 @@ export const authApi = createApi({
         body,
       }),
     }),
-    register: build.mutation<void, void>({
+    register: build.mutation<void, RegisterRequest>({
       query: (body) => ({
         url: "users/new",
         method: "POST",
