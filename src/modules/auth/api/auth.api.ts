@@ -1,13 +1,12 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "src/shared/api";
-import { RegisterRequest } from "./auth-api.types";
+import { RegisterRequest, LoginRequest } from "./auth-api.types";
 
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery,
   endpoints: (build) => ({
-    // вместо void должен быть тип (в папке auth-api.types.ts)
-    login: build.mutation<void, void>({
+    login: build.mutation<void, LoginRequest>({
       query: (body) => ({
         url: "users",
         method: "POST",

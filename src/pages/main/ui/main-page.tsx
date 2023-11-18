@@ -1,12 +1,5 @@
-import Header from "src/app/layout/header/header";
-
 const MainPage = () => {
-  return (
-    <div>
-      <Header />
-      <h1>Marketplace</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default MainPage;

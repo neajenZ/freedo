@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import { Button, Input } from "src/shared/ui";
 import { RegisterRequest } from "../api/auth-api.types";
 import { useRegisterMutation } from "../api/auth.api";
+import styles from "./register.module.scss";
 
-type RegisterInputProps = {
+type RegisterForm = {
   email: string;
   first_name: string;
   last_name: string;
@@ -12,10 +13,10 @@ type RegisterInputProps = {
 };
 
 const Register = () => {
-  const { register, handleSubmit, reset } = useForm<RegisterInputProps>();
+  const { register, handleSubmit, reset } = useForm<RegisterForm>();
   const [handleRegister] = useRegisterMutation();
 
-  const onSubmit = async (data: RegisterInputProps) => {
+  const onSubmit = async (data: RegisterForm) => {
     const preparedData: RegisterRequest = {
       email: data.email,
       first_name: data.first_name,
@@ -27,14 +28,7 @@ const Register = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-      }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <Input {...register("first_name")} placeholder="Имя" />
       <Input {...register("last_name")} placeholder="Фамилия" />
       <Input {...register("email")} placeholder="Почта" />

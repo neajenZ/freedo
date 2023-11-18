@@ -12,14 +12,22 @@ import {
 } from "src/shared/ui";
 import Register from "../register/register";
 import styles from "./auth-shell.module.scss";
+import Login from "../login/login";
 
 const AuthShell = () => {
   const [isRegister, setIsRegister] = useState(true);
+  const onAuthSwitch = () => setIsRegister((prev) => !prev);
+
   return (
     <Card className={styles.auth}>
-      <Grid container>
+      <Grid container columnSpacing={7}>
         <Grid item xs={6}>
-          <img src={AuthImage} />
+          <img
+            src={AuthImage}
+            style={{
+              width: "100%",
+            }}
+          />
         </Grid>
         <Grid
           item
@@ -31,7 +39,9 @@ const AuthShell = () => {
           }}
         >
           <div className={styles.auth_header}>
-            <p className="title">Создай свой аккаунт</p>
+            <p className="title">
+              {isRegister ? "Создай свой аккаунт" : "Войти в аккаунт"}
+            </p>
             <Button
               className={styles.close_btn}
               onClick={() => console.log("closing")}
@@ -40,15 +50,12 @@ const AuthShell = () => {
             </Button>
           </div>
           <p className="sub_title">
-            Уже есть аккаунт?
-            <span
-              className={styles.switch}
-              onClick={() => console.log("switching to")}
-            >
-              Войти
+            {isRegister ? "Уже есть аккаунт?" : "Еще нет аккаунта?"}
+            <span className={styles.switch} onClick={onAuthSwitch}>
+              {isRegister ? "Войти" : "Зарегистрироваться"}
             </span>
           </p>
-          {isRegister ? <Register /> : <p>Login Form</p>}
+          {isRegister ? <Register /> : <Login />}
           <Box
             sx={{
               display: "flex",

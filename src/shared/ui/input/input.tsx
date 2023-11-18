@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import styles from "./input.module.scss";
 
 type HTMLInputProps = Omit<
@@ -14,9 +14,7 @@ interface InputProps extends HTMLInputProps {
 const Input = (props: InputProps) => {
   const { className, ...otherProps } = props;
   return (
-    <div>
-      <input className={classNames(styles.input, className)} {...otherProps} />
-    </div>
+    <input className={classNames(styles.input, className)} {...otherProps} />
   );
 };
 
