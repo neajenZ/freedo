@@ -1,11 +1,12 @@
 import { readFileSync } from "fs";
 import pkg from "json-server";
-import { resolve } from "path";
+import * as path from "path";
+import { fileURLToPath } from "url";
 const { create, router: _router, defaults, bodyParser } = pkg;
 
 const server = create();
-const __dirname = import.meta.url;
-const router = _router(resolve(__dirname, "db.json"));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const router = _router(path.resolve(__dirname, "db.json"));
 
 server.use(defaults({}));
 server.use(bodyParser);
@@ -17,10 +18,21 @@ server.use(async (req, res, next) => {
   next();
 });
 
+server.get("/users", (req, res) => {
+  try {
+    const users = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
+    res.json(users);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 server.post("/users/login", (req, res) => {
   try {
     const { email, password } = req.body;
-    const db = JSON.parse(readFileSync(resolve(__dirname, "db.json"), "UTF-8"));
+    const db = JSON.parse(
+      readFileSync(path.resolve(__dirname, "db.json"), "UTF-8")
+    );
     const { users = [] } = db;
 
     const userFromBd = users.find(
@@ -41,16 +53,17 @@ server.post("/users/login", (req, res) => {
 server.post("/users/new", (req, res) => {
   try {
     const userData = req.body;
-    const db = JSON.parse(readFileSync(resolve(__dirname, "db.json"), "UTF-8"));
+    console.log("REQUEST", req.body);
+    const db = JSON.parse(
+      readFileSync(path.resolve(__dirname, "db.json"), "UTF-8")
+    );
     const { users = [] } = db;
 
-    const userFromBd = users.find(
-      (user) =>
-        user.email === userData.email && user.password === userData.password
-    );
+    const userFromBd = users.find((user) => user.email === userData.email);
 
     if (!userFromBd) {
       users.push(userData);
+      console.log(users);
       return res.json(userFromBd);
     }
 

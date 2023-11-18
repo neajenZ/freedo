@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { useRegisterMutation } from "../api/auth.api";
+import { Button, Input } from "src/shared/ui";
 import { RegisterRequest } from "../api/auth-api.types";
+import { useRegisterMutation } from "../api/auth.api";
 
 type RegisterInputProps = {
   email: string;
@@ -26,35 +27,23 @@ const Register = () => {
   };
 
   return (
-    <div
+    <form
+      onSubmit={handleSubmit(onSubmit)}
       style={{
-        width: "100%",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: "32px",
+        flexDirection: "column",
+        gap: "16px",
       }}
     >
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "50%",
-          gap: "16px",
-        }}
-      >
-        <input {...register("first_name")} placeholder="Имя" />
-        <input {...register("last_name")} placeholder="Фамилия" />
-        <input {...register("email")} placeholder="Почта" />
-        <input {...register("password")} placeholder="Пароль" />
-        <input
-          {...register("repeat_password")}
-          placeholder="Повторите пароль"
-        />
-        <button type="submit">Войти</button>
-      </form>
-    </div>
+      <Input {...register("first_name")} placeholder="Имя" />
+      <Input {...register("last_name")} placeholder="Фамилия" />
+      <Input {...register("email")} placeholder="Почта" />
+      <Input {...register("password")} placeholder="Пароль" />
+      <Input {...register("repeat_password")} placeholder="Повторите пароль" />
+      <Button variant="filled" type="submit">
+        Войти
+      </Button>
+    </form>
   );
 };
 

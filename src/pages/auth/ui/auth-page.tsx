@@ -1,9 +1,9 @@
-import { Register } from "src/modules/auth";
+import { AuthShell } from "src/modules/auth";
 
 const AuthPage = () => {
   return (
     <>
-      <Register />
+      <AuthShell />
     </>
   );
 };

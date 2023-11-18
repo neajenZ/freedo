@@ -1,0 +1,15 @@
+.auth {
+  background-color: white;
+}
+
+.auth_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch {
+  color: var(--585DFB, #585dfb);
+  text-decoration: underline;
+  cursor: pointer;
+}

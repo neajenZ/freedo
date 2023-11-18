@@ -1,0 +1,18 @@
+.button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--09090A, #111011);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filled {
+  background: var(--585DFB, #585dfb);
+  color: white;
+}
+
+.outlined {
+  background: white;
+  color: #09090a;
+}
