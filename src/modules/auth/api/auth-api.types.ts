@@ -1,7 +1,12 @@
-// типы должны соответвовать полям, которые прописаны в свагере
-// вставить потом в редакс хуки вместо <void, void>
-type RegisterResponse = {};
-type RegisterRequest = {};
+export type RegisterRequest = {
+  email: string;
+  first_name: string;
+  last_name: string;
+  password: string;
+};
 
-type LoginResponse = {};
-type LoginRequest = {};
+// export type LoginResponse = {};
+export type LoginRequest = {
+  email: string;
+  password: string;
+};

@@ -6,6 +6,44 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+}
+
+main {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: var(--09090A, #111011);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.sub_title {
+  color: var(--09090A, #111011);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.info {
+  color: var(--4E5662, #4e5662);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -28,4 +66,8 @@ body {
 .swiper-button-prev:after,
 .swiper-button-next:after {
   content: "" !important;
+}
+
+.error {
+  color: var(--FB5858, #fb5858);
 }

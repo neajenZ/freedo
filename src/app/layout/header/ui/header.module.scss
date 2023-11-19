@@ -1,0 +1,25 @@
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  align-items: center;
+  padding: 30px 120px;
+}
+
+.switcher {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth {
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.header_input {
+  width: 70%;
+  padding: 16px;
+  height: 20px;
+}

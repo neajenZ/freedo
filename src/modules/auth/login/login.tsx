@@ -1,38 +1,38 @@
-import React from "react";
-import { useLoginMutation } from "../api/auth.api";
 import { useForm } from "react-hook-form";
-// пропсы компонента пишем через типы TypeScript
-type LoginProps = {
-  randomProp: string;
-};
+import { useLoginMutation } from "../api/auth.api";
+import { Button, Input } from "src/shared/ui";
+import styles from "./login.module.scss";
 
-//  этот тип должен соответсвовать типу, который мы посылаем на бек (нужно посмотреть в свагере)
 type LoginForm = {
   email: string;
   password: string;
 };
 
-const Login = (props: LoginProps) => {
-  // делаем деструктуризацию пропсов (свойств/параметров)
-  // @ts-ignore
-  const { randomProp } = props;
+const Login = () => {
+  const [handleLogin] = useLoginMutation();
+  const { register, handleSubmit, reset } = useForm<LoginForm>();
 
-  const [handleLogin, result] = useLoginMutation();
-
-  // тут нужно сделать валидацию полей, обработку ошибок
-  // можно глянуть пример https://react-hook-form.com/get-started
-  const { handleSubmit } = useForm<LoginForm>();
-
-  const onSubmit = async () => {
-    await handleLogin();
+  const onSubmit = async (data: LoginForm) => {
+    await handleLogin(data);
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input placeholder="email" />
-      <input placeholder="password" />
-      <button>Submit</button>
-    </form>
+    <div>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        <Input placeholder="Почта" {...register("email")} />
+        <Input placeholder="Пароль" {...register("password")} />
+        <Button variant="filled">Войти</Button>
+      </form>
+    </div>
   );
 };
 

@@ -1,0 +1,11 @@
+.close_btn {
+  border-radius: 80px;
+  border: 2px solid var(--4E5662, #4e5662);
+  background: transparent;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
