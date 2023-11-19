@@ -67,3 +67,7 @@ main {
 .swiper-button-next:after {
   content: "" !important;
 }
+
+.error {
+  color: var(--FB5858, #fb5858);
+}

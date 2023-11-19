@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { InputHTMLAttributes } from "react";
+import { FieldError } from "react-hook-form";
 import styles from "./input.module.scss";
 
 type HTMLInputProps = Omit<
@@ -9,12 +10,21 @@ type HTMLInputProps = Omit<
 
 interface InputProps extends HTMLInputProps {
   className?: string;
+  error?: FieldError;
 }
 
 const Input = (props: InputProps) => {
-  const { className, ...otherProps } = props;
+  const { className, error, ...otherProps } = props;
   return (
-    <input className={classNames(styles.input, className)} {...otherProps} />
+    <>
+      <input
+        className={classNames(styles.input, className, {
+          [styles.border_error]: error?.message,
+        })}
+        {...otherProps}
+      />
+      {error && <span className="error">{error.message}</span>}
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import styles from "./button.module.scss";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: "outlined" | "filled" | "text";
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = (props: ButtonProps) => {
