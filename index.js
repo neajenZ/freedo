@@ -27,6 +27,15 @@ server.get("/users", (req, res) => {
   }
 });
 
+server.get("/user", (req, res) => {
+  try {
+    const data = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
+    res.json(data.user);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 server.get("/publications", (req, res) => {
   try {
     const data = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));

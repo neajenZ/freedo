@@ -1,4 +1,10 @@
 {
+  "user": {
+    "first_name": "Александра",
+    "last_name": "Миро",
+    "contacts": ["@Harygoter", "@Harygoter", "@Harygoter"],
+    "payments": ["Mir", "Discover", "Visa", "MasterCard"]
+  },
   "users": [
     {
       "id": 12345,

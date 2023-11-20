@@ -1,10 +1,7 @@
 export type UserResponse = {
   avatar: string;
-  name: string;
-  languages: string[];
+  first_name: string;
+  last_name: string;
   contacts: string[];
   payments: string[];
-  date: string;
-  views: number;
-  skills: string[];
 };

@@ -1,16 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authApi } from "src/modules/auth";
-import { publicationApi } from "src/modules/publications/api/publication.api";
+import { publicationApi } from "src/modules/publications";
+import { userApi } from "src/modules/user";
 
 const store = configureStore({
   reducer: {
+    [userApi.reducerPath]: userApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [publicationApi.reducerPath]: publicationApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       authApi.middleware,
-      publicationApi.middleware
+      publicationApi.middleware,
+      userApi.middleware
     ),
 });
 
