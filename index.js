@@ -20,8 +20,17 @@ server.use(async (req, res, next) => {
 
 server.get("/users", (req, res) => {
   try {
-    const users = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
-    res.json(users);
+    const data = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
+    res.json(data.users);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
+server.get("/publications", (req, res) => {
+  try {
+    const data = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
+    res.json(data.publications);
   } catch (e) {
     res.send(e);
   }

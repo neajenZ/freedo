@@ -1,5 +1,7 @@
+import { PublicationList } from "src/modules/publications";
+
 const MainPage = () => {
-  return <div></div>;
+  return <PublicationList />;
 };
 
 export default MainPage;
