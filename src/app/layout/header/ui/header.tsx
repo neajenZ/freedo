@@ -30,7 +30,6 @@ const Header = () => {
         className={styles.auth}
         onClick={() => {
           navigate(RoutePath.auth);
-          console.log("object");
         }}
       >
         <UserIcon />
