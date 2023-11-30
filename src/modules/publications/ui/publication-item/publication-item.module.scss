@@ -1,3 +1,124 @@
+@import 'src/app/styles/mixins';
+
 .publication {
   background-color: white;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  &:hover {
+    transition: all 0.3s;
+    background-color: rgba(236, 236, 254, 1);
+    border: 2px solid #585dfb;
+    scale: 0.97;
+  }
+}
+
+.top {
+  display: grid;
+  grid-template-rows: repeat(1,auto);
+  grid-template-columns: max-content 1fr max-content;
+  gap: 10px;
+
+  &__avatar {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #585dfb;
+  }
+
+  &__text {
+    flex-grow: 1;
+    @include text(20px, 24px, 700);
+
+    .subtitle {
+      margin-top: 4px;
+      @include text(14px, 17px, 400, #4e5662);
+    }
+  }
+
+  &__panel {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+
+    .favorites {
+      background-color: transparent;
+      width: 29px;
+      height: 29px;
+      .heart:hover {
+        path {
+          fill: #fb5858;
+        }
+      }
+
+    }
+
+    .price {
+      background-color: #585dfb;
+      border: 1px solid #09090a;
+      border-radius: 40px;
+      min-width: 92px;
+      height: 30px;
+      text-align: center;
+      padding: 5px 10px;
+      @include text(16px, 20px, 500, white)
+    }
+  }
+}
+
+.description {
+  padding-left: 60px;
+  @include text(16px, 20px, 400)
+}
+
+.countries {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  &__item {
+    border: 1px solid #09090a;
+    border-radius: 40px;
+    padding: 5px 10px;
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .top__panel {
+    justify-content: space-between;
+  }
+  .top__text {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .top {
+    grid-template-rows: auto auto;
+    grid-template-columns: max-content 1fr;
+    gap: 10px;
+  &__avatar {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+  }
+    &__panel {
+      justify-content: space-between;
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+    }
+    &__text {
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+    }
+  }
 }

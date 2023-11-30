@@ -1,0 +1,14 @@
+@import "src/app/styles/mixins";
+
+.container {
+  @include create-grid(repeat(1, auto), 24px);
+  margin-top: 40px;
+  padding: 0 16px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    @include create-grid(repeat(2, auto), 80px);
+    padding: 0 120px;
+  }
+}
