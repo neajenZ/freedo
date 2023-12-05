@@ -1,4 +1,4 @@
-import { Grid } from "src/shared/ui";
+import styles from "./publication-list.module.scss"
 import { usePublicationsQuery } from "../../api/publication.api";
 import PublicationItem from "../publication-item/publication-item";
 
@@ -6,16 +6,15 @@ const PublicationList = () => {
   const { data: publications } = usePublicationsQuery();
 
   return (
-    <Grid container>
+      <div className={styles.container}>
       {publications?.map((publication, i) => (
-        <Grid item xs={12} sm={6} columnSpacing={10}>
           <PublicationItem
             publication={publication}
             key={`${publication.title}${i}`}
+            lengthDescription={120}
           />
-        </Grid>
       ))}
-    </Grid>
+      </div>
   );
 };
 
