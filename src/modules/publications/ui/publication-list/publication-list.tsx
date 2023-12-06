@@ -11,7 +11,6 @@ const PublicationList = () => {
           <PublicationItem
             publication={publication}
             key={`${publication.title}${i}`}
-            lengthDescription={120}
           />
       ))}
       </div>
