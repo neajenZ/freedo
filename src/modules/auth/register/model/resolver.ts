@@ -1,5 +1,5 @@
 import { createResolver, createError } from "src/shared/utils";
-import { RegisterForm } from "./register-foкm.types";
+import { RegisterForm } from "./register-form.types";
 
 export default createResolver<RegisterForm>((values, errors) => {
   if (!values.first_name) errors.first_name = createError("Введите имя");

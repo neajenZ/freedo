@@ -1,21 +1,20 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
 import { AuthImage } from "src/shared/assets";
 import {
   Box,
   Button,
   Card,
-  CloseIcon,
   FacebookIcon,
   GoogleIcon,
   Grid,
 } from "src/shared/ui";
+import Login from "../login/ui/login";
 import Register from "../register/ui/register";
-import styles from "./auth-shell.module.scss";
-import Login from "../login/login";
-import { useNavigate } from "react-router-dom";
+import styles from "./auth-widget.module.scss";
 
-const AuthShell = () => {
+const AuthWidget = () => {
   const [isRegister, setIsRegister] = useState(true);
   const onAuthSwitch = () => setIsRegister((prev) => !prev);
 
@@ -40,12 +39,6 @@ const AuthShell = () => {
             <p className="title">
               {isRegister ? "Создай свой аккаунт" : "Войти в аккаунт"}
             </p>
-            {/* <Button
-              className={styles.close_btn}
-              onClick={() => console.log("closing")}
-            >
-              <CloseIcon />
-            </Button> */}
             <span className={styles.switch_link} onClick={() => navigate("/")}>
               На главную
             </span>
@@ -83,4 +76,4 @@ const AuthShell = () => {
   );
 };
 
-export default AuthShell;
+export default AuthWidget;

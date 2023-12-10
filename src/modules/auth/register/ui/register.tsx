@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Button, Input } from "src/shared/ui";
 import { RegisterRequest } from "../../api/auth-api.types";
 import { useRegisterMutation } from "../../api/auth.api";
-import { RegisterForm } from "../model/register-foкm.types";
+import { RegisterForm } from "../model/register-form.types";
 import resolver from "../model/resolver";
 import styles from "./register.module.scss";
 

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useLoginMutation } from "../api/auth.api";
+import { useLoginMutation } from "../../api/auth.api";
 import { Button, Input } from "src/shared/ui";
 import styles from "./login.module.scss";
 
