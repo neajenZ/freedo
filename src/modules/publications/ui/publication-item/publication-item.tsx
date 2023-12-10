@@ -5,29 +5,28 @@ import FavoritesIcon from "src/shared/ui/icons/FavoritesIcon.tsx";
 
 type PublicationItemProps = {
   publication: Publication;
-  lengthDescription: number;
 };
 
-const PublicationItem = ({ publication, lengthDescription }: PublicationItemProps) => {
+const PublicationItem = ({ publication }: PublicationItemProps) => {
   const { title, price, categories, description } = publication;
 
   return (
     <Card className={styles.publication}>
-      <div className={styles.top}>
-          <div className={styles.top__avatar}></div>
-              <div className={styles.top__text}>
+      <header className={styles.header}>
+          <div className={styles.header__avatar}></div>
+              <div className={styles.header__text}>
                   <p>{title}</p>
                   <p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?
                       <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :
                       <span key={`${cat}${index}`}>{cat}</span>))}</p>
               </div>
-              <div className={styles.top__panel}>
+              <div className={styles.header__panel}>
                   <div className={styles.price}><span>{price} $ +</span></div>
                   <button className={styles.favorites}><FavoritesIcon className={styles.heart}/></button>
               </div>
-      </div>
+      </header>
         <div className={styles.description}>
-            <p>{description.length > lengthDescription ? description.slice(0, lengthDescription).concat(`...`) : description}</p>
+            <p className={styles.description__text}>{description}</p>
         </div>
         <div className={styles.countries}>
             <div className={styles.countries__item}>1</div>
