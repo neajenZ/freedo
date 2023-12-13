@@ -29,7 +29,7 @@ const Header = () => {
         variant="filled"
         className={styles.auth}
         onClick={() => {
-          navigate(RoutePath.auth);
+          navigate(RoutePath.profile);
         }}
       >
         <UserIcon />
