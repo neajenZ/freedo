@@ -1,0 +1,12 @@
+@import 'src/app/styles/mixins';
+
+.price {
+  background-color: #585dfb;
+  border: 1px solid #09090a;
+  border-radius: 40px;
+  min-width: 92px;
+  height: 30px;
+  text-align: center;
+  padding: 5px 10px;
+  @include text(16px, 20px, 500, white)
+}

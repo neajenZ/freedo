@@ -10,3 +10,9 @@
   grid-template-columns: $template-columns;
   gap: $gap;
 }
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,9 +1,27 @@
+@import 'src/app/styles/mixins';
+
 .main {
   position: relative;
   display: flex;
   gap: 5px;
 }
-
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 13px;
+    background:rgba(78, 86, 98, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 13px;
+    background: #09090a;
+  }
+}
 .item {
   cursor: pointer;
   display: flex;
@@ -15,17 +33,26 @@
   border: 1px solid rgba(9, 9, 10, 1);
 }
 
-.img {
-  height: 19px;
-  width: 29px;
-}
-
 .popup {
-  width: 201px;
-}
+  width: 300px;
+  position: absolute;
+  top: 0;
+  right: -4px;
+  border: 1px solid #09090a;
+  padding: 24px 16px;
 
-.wrapper {
-  padding: 20px;
+  &__title {
+    @include text(16px, 19px, 500);
+  }
+  &__closeBtn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid rgba(9, 9, 10, 1);
+    padding: 0;
+    @include flex-center();
+  }
 }
 
 .head {
@@ -33,27 +60,4 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-}
-
-.allLang {
-  //@include text-semiBold($text-large, $color-black-99101)
-  font-weight: 500;
-  font-size: 16px;
-}
-
-.x {
-  cursor: pointer;
-  border-radius: 40px;
-  border: 1px solid rgba(9, 9, 10, 1);
-  padding: 5px 10px 0 10px;
-}
-
-.langs {
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.item {
 }

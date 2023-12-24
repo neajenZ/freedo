@@ -1,4 +1,5 @@
 import styles from "./contact-list.module.scss";
+import {SocialIcon} from "src/shared/ui";
 
 type ContactListProps = {
   contacts: string[];
@@ -8,19 +9,11 @@ const ContactList = (props: ContactListProps) => {
   const { contacts } = props;
   return (
     <div className={styles.contacts}>
-      {contacts.length % 2
-        ? contacts.map((item) => (
-            <div key={Math.random()} className={styles.odd}>
+      {contacts.map((item, i) => (
+            <div key={`${item}-${i}`} className={`${styles.contacts__item} ${contacts.length % 2 && styles.contacts__item_odd}`}>
               {/* перенести из старого проекта note.svg */}
-              <img src={""} alt="" />
-              <div>{item}</div>
-            </div>
-          ))
-        : contacts.map((item) => (
-            <div key={Math.random()} className={styles.even}>
-              {/* перенести из старого проекта note.svg */}
-              <img src={"note"} alt="" />
-              <div>{item}</div>
+              <SocialIcon/>
+              <span className={styles.contacts__social}>{item}</span>
             </div>
           ))}
     </div>

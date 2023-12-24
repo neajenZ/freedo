@@ -1,3 +1,5 @@
+@import 'src/app/styles/mixins';
+
 .contacts {
   //flex-basis: auto;
   //gap: 10px;
@@ -6,34 +8,24 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr;
-}
+  &__item {
+    min-width: 195px;
+    max-width: 400px;
+    height: 43px;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(9, 9, 10, 1);
 
-.odd {
-  min-width: 195px;
-  max-width: 400px;
-  border-radius: 10px;
-  padding: 10px 0 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: rgba(9, 9, 10, 1);
-  color: white;
-}
+    &_odd:last-child {
+      grid-column: 1 / span 2;
+    }
+  }
 
-.odd:last-child {
-  grid-column: 1 / span 2;
-}
-
-.even {
-  min-width: 195px;
-  max-width: 400px;
-  border-radius: 10px;
-  padding: 10px 0 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: rgba(9, 9, 10, 1);
-  color: white;
+  &__social {
+    @include text(16px, 19px, 700, white)
+  }
 }
