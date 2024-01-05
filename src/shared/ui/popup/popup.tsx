@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styles from "./PopUp.module.scss";
+import styles from "./popup.module.scss";
 
 interface IPopup {
   children: React.ReactNode;

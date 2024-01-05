@@ -6,7 +6,6 @@ const UserWorkExperience = () => {
       <div className={styles.container}></div>
     </div>
   );
-  ƒ;
 };
 
 export default UserWorkExperience;
