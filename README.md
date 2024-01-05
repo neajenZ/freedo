@@ -26,3 +26,8 @@
 - fsd architecture: https://feature-sliced.design/ru/docs/get-started/overview
 - react-hook-form: https://react-hook-form.com/
 - коммиты: https://www.conventionalcommits.org/
+
+## Как поднять докер файл
+
+- docker build -t freedo .
+- docker run -p 3000:3000 freedo
