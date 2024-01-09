@@ -1,8 +1,8 @@
-import MirIcon from "src/shared/ui/icons/MirIcon";
+
 import styles from "./payment-list.module.scss";
-import DiscoverIcon from "src/shared/ui/icons/DiscoverIcon";
-import VisaIcon from "src/shared/ui/icons/VisaIcon";
-import MasterCardIcon from "src/shared/ui/icons/MasterCardIcon";
+import {MirIcon, DiscoverIcon, MasterCardIcon, VisaIcon} from "src/shared/ui";
+import {useState} from "react";
+import {Button} from "src/shared/ui";
 
 type PaymentListProps = {
   payments: string[];
@@ -23,20 +23,23 @@ const paymentConfig: Record<PaymentType, JSX.Element> = {
 };
 
 const PaymentList = (props: PaymentListProps) => {
-  const { payments } = props;
-
+    const { payments } = props;
+    const [showAllPayments, setShowAllPayments] = useState(true);
+    const preparePayments = showAllPayments && payments.length > 6 ? payments.slice(0, 5) : payments;
   return (
-    <div className={styles.payments}>
-      <div className={styles.title}>Платежные системы</div>
-      <div className={styles.items}>
-        {payments.map((item) => (
-          <div className={styles.item} key={item}>
-            {paymentConfig[item as keyof typeof paymentConfig]}
+      <div className={styles.container}>
+        <h4 className={styles.container__title}>Платёжные системы</h4>
+          <div className={styles.payments}>
+              {preparePayments.map((item,i) => (
+                  <div className={styles.payments__pay} key={`${item}-${i}`}>
+                      {paymentConfig[item as keyof typeof paymentConfig]}
+                  </div>
+              ))}
+              {payments.length > 6 &&
+                  <Button onClick={() => setShowAllPayments(!showAllPayments)}
+                          className={styles.payments__showBtn}>{showAllPayments ? `+${payments.length - preparePayments.length }` : '^^^'}</Button>}
           </div>
-        ))}
-        <div className={styles.dots}>...</div>
       </div>
-    </div>
   );
 };
 

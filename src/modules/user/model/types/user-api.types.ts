@@ -4,4 +4,7 @@ export type UserResponse = {
   last_name: string;
   contacts: string[];
   payments: string[];
+  languages: string[];
+  date: Date;
+  views: number;
 };

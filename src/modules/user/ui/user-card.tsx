@@ -1,32 +1,29 @@
-import { PaymentList } from "src/components/payment-list";
-import { useUserQuery } from "../model/api/user.api";
-import { ContactList } from "src/components/contacts-list";
-import { UserImage } from "src/shared/assets";
+import {useUserQuery} from "../model/api/user.api";
 import styles from "./user-card.module.scss";
+import {LanguageList, LangView} from "../../../components/language-list";
+import {ContactList} from "src/components/contacts-list";
+import {PaymentList} from "src/components/payment-list";
+
 
 const UserCard = () => {
-  const { data } = useUserQuery();
-
+  const { data} = useUserQuery();
   if (!data) return;
 
   return (
     <div className={styles.profile}>
-      <div className={styles.wrapper}>
-        <img className={styles.avatar} src={UserImage} alt="item" />
+        <img className={styles.profile__avatar} src={data.avatar} alt="Profile Avatar"/>
         <div className={styles.info}>
-          <div className={styles.top}>
-            <div className={styles.name}>
-              {data.first_name} {data.last_name}
-            </div>
-            <div className={styles.views}>1K+</div>
+          <div className={styles.info__top}>
+            <h3 className={styles.name}>{data.first_name} {data.last_name}</h3>
+            <span className={styles.views}>{data.views}</span>
           </div>
-          <div className={styles.bottom}>
+          <div className={styles.info__bottom}>
             <div className={styles.date}>1 год на площадке</div>
+            <LanguageList languages={data.languages} variant={LangView.Popup}/>
           </div>
         </div>
         <ContactList contacts={data.contacts} />
         <PaymentList payments={data.payments} />
-      </div>
     </div>
   );
 };

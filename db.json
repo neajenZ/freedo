@@ -1,9 +1,13 @@
 {
   "user": {
+    "avatar": "src/shared/assets/images/user.png",
     "first_name": "Александра",
     "last_name": "Миро",
     "contacts": ["@Harygoter", "@Harygoter", "@Harygoter"],
-    "payments": ["Mir", "Discover", "Visa", "MasterCard"]
+    "payments": ["MIR", "DISCOVER", "VISA", "MASTER_CARD", "MIR", "MIR",  "MASTER_CARD", "MASTER_CARD"],
+    "languages": ["antigua","colombia","argentina","usa","canada","grenada","haiti"],
+    "date": "2022-12-23",
+    "views": 1000
   },
   "users": [
     {

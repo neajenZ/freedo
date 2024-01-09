@@ -15,3 +15,9 @@ export { default as FacebookIcon } from "./icons/FacebookIcon";
 export { default as GoogleIcon } from "./icons/GoogleIcon";
 export { default as LogoIcon } from "./icons/LogoIcon";
 export { default as UserIcon } from "./icons/UserIcon";
+export { default as SocialIcon } from "./icons/SocialIcon";
+
+export { default as MirIcon } from "./icons/MirIcon";
+export { default as DiscoverIcon } from "./icons/DiscoverIcon";
+export { default as MasterCardIcon } from "./icons/MasterCardIcon";
+export { default as VisaIcon } from "./icons/VisaIcon";
