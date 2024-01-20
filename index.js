@@ -15,6 +15,7 @@ server.use(async (req, res, next) => {
   await new Promise((res) => {
     setTimeout(res, 800);
   });
+  console.log('test')
   next();
 });
 
