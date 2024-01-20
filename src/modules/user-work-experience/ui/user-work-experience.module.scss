@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  align-items: start;
+  gap: 43px;
+
+}
+
+.card {
+  border-radius: 20px;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}

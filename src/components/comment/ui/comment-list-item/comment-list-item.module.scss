@@ -1,0 +1,95 @@
+@import "src/app/styles/variavles";
+
+.main {
+  border: 1px solid $black-color;
+  padding: 24px 20px;
+  border-radius: 15px;
+}
+
+.header {
+
+}
+
+.say {
+  //@include text-bold($header-h1, $color-black-99101)
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.seeAll {
+  cursor: pointer;
+  //@include text-bold($text-large-user, $color-black-99101)
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mySwiper {
+  max-height: 160px;
+}
+
+.custom {
+  background-color: black;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  grid-gap: $margin-m;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  img {
+    background: #585DFB;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var($black-color);
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: $grey;
+}
+
+.stars {
+  padding: 5px 10px;
+  border-radius: 40px;
+  display: inline-block;
+  border: 1px solid $black-color;
+  color: #FFD338;
+}
+
+.text {
+  color: $black-color;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

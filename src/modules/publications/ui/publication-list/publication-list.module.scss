@@ -1,0 +1,68 @@
+@import "src/app/styles/mixins";
+@import "src/app/styles/variavles";
+.container {
+  @include create-grid(repeat(2, 50%), 24px);
+  margin: 0 auto 0 auto;
+  width: 100%;
+}
+
+.filterWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 30px;
+  margin: $margin-xxxl 0;
+  button {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    span {
+      display: flex;
+      align-items: center;
+      grid-gap: 10px;
+    }
+  }
+}
+
+.navWrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 19px;
+  padding: 74px 0 45px 0;
+  .dropdownBtn {
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 16px;
+    color: $grey;
+    max-width: 330px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    @include create-grid(repeat(1, auto), 80px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .filterWrapper {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    grid-gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    grid-gap: 24px;
+  }
+}

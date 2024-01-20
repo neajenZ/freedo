@@ -1,0 +1,13 @@
+.main {
+  z-index: 9999;
+  display: block;
+  position: absolute;
+  border-radius: 20px;
+  border: 2px solid rgba(9, 9, 10, 1);
+  background-color: #fff;
+}
+
+.disable {
+  z-index: 0;
+  display: none;
+}

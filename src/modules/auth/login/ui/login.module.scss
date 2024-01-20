@@ -1,0 +1,104 @@
+@import 'src/app/styles/variavles';
+@import 'src/app/styles/mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 40px;
+
+  input {
+    @include input(100%, 16px)
+  }
+}
+
+.orTitle {
+  margin: 40px 0;
+  text-align: center;
+  color: $black-color;
+  font-size: $text-large;
+  font-weight: 500;
+}
+
+.footerForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: $margin-xl;
+  button {
+    color: $purple-color;
+    font-size: $text-medium;
+    font-weight: 500;
+    background: none;
+  }
+}
+
+.sendFormBtn {
+  @include button(100%, 16px);
+}
+
+.checkbox {
+  input {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    &:checked + label::before {
+      background: url("src/modules/auth/login/acceptIco.svg"), #000 center no-repeat;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-color: #fff;
+    }
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    color: $grey;
+    max-width: 229px;
+    width: 100%;
+    padding-left: 28px;
+    position: relative;
+    user-select: none;
+    line-height: 14px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 0;
+      border: 1px solid #5D6C7B;
+    }
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .orTitle {
+    margin: 24px 0;
+    font-size: 16px;
+  }
+  .footerForm {
+    button {
+      font-size: 16px;
+    }
+    label {
+      font-size: 16px;
+    }
+  }
+  .inputWrapper {
+    flex-direction: column;
+    width: 100%;
+    grid-gap: 8px;
+  }
+}

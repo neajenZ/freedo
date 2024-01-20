@@ -1,0 +1,39 @@
+@import "src/app/styles/variavles";
+
+.body {
+  display: flex;
+  flex-direction: column;
+  grid-gap: $margin-xl;
+  img {
+    width: 100%;
+  }
+}
+
+.swiperImg {
+  max-width: 242px;
+  border-radius: 22px !important;
+}
+
+.mainImg {
+  width: 100%;
+  img {
+    border-radius: 10px;
+    width: 100%;
+  }
+}
+
+.imgList {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 10px;
+}
+
+.wrapperImgXs {
+  max-width: 110px;
+  width: 100%;
+  background: $black-color;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

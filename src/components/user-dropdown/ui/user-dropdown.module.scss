@@ -1,0 +1,50 @@
+@import 'src/app/styles/variavles';
+@import 'src/app/styles/mixins';
+
+.body {
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 32px 24px;
+  position: absolute;
+  right: 0;
+  top: 150%;
+  z-index: 1000;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-gap: $margin-xxxl;
+    h4 {
+      color: $black-color;
+      font-size: $text-small;
+      font-weight: 500;
+    }
+
+    .nameWrapper {
+      font-size: 25px;
+      color: $black-color;
+      display: flex;
+      align-items: center;
+      span {
+        font-weight: 500;
+        line-height: 100%;
+      }
+      h3 {
+        font-weight: 700;
+      }
+    }
+    .buttonWrapper {
+      display: flex;
+      align-items: stretch;
+      grid-gap: $margin-xl;
+      button:last-child {
+        background: $grey;
+      }
+      button {
+        @include button(230px, 16px)
+      }
+    }
+  }
+}

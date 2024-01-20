@@ -1,0 +1,34 @@
+@import "src/app/styles/mixins";
+
+.body {
+  position: relative;
+  .logoWrapper {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  h3 {
+    font-size: 150px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  p {
+    font-size: 25px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 10px 0 40px 0;
+  }
+  button {
+    @include button(300px, 16px)
+  }
+}

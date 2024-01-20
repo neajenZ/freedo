@@ -1,0 +1,16 @@
+@import "src/app/styles/variavles";
+
+.body {
+  background: transparent;
+  border: 1px solid $black-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $text-small;
+  font-weight: 700;
+  grid-gap: 10px;
+  border-radius: 10px;
+  width: 100%;
+  padding: $margin-xl 0;
+  text-align: center;
+}

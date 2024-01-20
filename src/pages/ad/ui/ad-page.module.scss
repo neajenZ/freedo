@@ -1,0 +1,25 @@
+@import "src/app/styles/variavles";
+
+.wrapper {
+  margin: 100px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  grid-gap: 56px;
+  width: 100%;
+}
+
+.aboutAd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-gap: $margin-xl;
+}
+
+
+
+@media (max-width: 480px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

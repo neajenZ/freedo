@@ -1,0 +1,163 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.body {
+  max-width: 1376px;
+  width: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: $margin-xxxl;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 60px;
+}
+
+.imgBody {
+  position: relative;
+  max-width: 425px;
+  width: 100%;
+  border-radius: 5px;
+  background: url("src/shared/assets/images/auth.png") no-repeat;
+  background-position-y: center;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.aside {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  grid-gap: $margin-xxxl;
+  width: 100%;
+  h3 {
+    @include text(30px, 120%, 700, $black-color)
+  }
+}
+
+.typeAuthWrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+  p {
+    font-size: $text-large;
+    font-weight: 500;
+    color: $black-color;
+  }
+  button {
+    font-size: $text-medium;
+    font-weight: 500;
+    color: $purple-color;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $margin-xl;
+  width: 100%;
+  button {
+    @include text($text-small, 120%, 700, $black-color);
+    padding: $margin-xl 0;
+    border: 1px solid $black-color;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+  }
+  .fullWidth {
+    grid-column: 1 / 3;
+  }
+}
+
+.politicyText {
+  @include text($text-small, 120%, 400, $grey);
+  a {
+    color: $purple-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1160px) {
+  .wrapper {
+    grid-gap: 35px;
+  }
+  .imgBody {
+    max-width: 350px;
+  }
+  .form {
+    button {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 986px) {
+  .wrapper {
+    grid-gap: 30px;
+  }
+  .imgBody {
+    max-width: 325px;
+  }
+  .form {
+    button {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    padding: 32px 16px;
+    transform: translate(-50%, 5%);
+  }
+  .aside {
+    h3 {
+      font-size: 20px;
+    }
+  }
+  .typeAuthWrapper {
+    justify-content: space-between;
+    margin-top: 8px;
+    p {
+      font-size: $text-small;
+    }
+    button {
+      font-size: $text-small;
+    }
+  }
+  .wrapper {
+    flex-direction: column;
+    .imgBody {
+      height: 268px;
+      max-width: 100%;
+    }
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+    .fullWidth {
+      grid-column: 1;
+    }
+  }
+  .politicyText {
+    font-size: 14px;
+  }
+}
