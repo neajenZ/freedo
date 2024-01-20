@@ -1,25 +1,207 @@
+@import "src/app/styles/variavles";
+
 .header {
-  background: white;
+  background: #fff;
+  border-radius: 0 0 5px 5px;
   display: flex;
-  justify-content: space-around;
-  height: 80px;
   align-items: center;
-  padding: 30px 120px;
+  padding: 30px 0;
 }
 
-.switcher {
+.wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  grid-gap: 64px;
+  position: relative;
 }
 
-.auth {
-  border-radius: 50%;
-  padding: 12px;
+.inputBody {
+  position: relative;
+  width: 100%;
+  input {
+    width: 100%;
+    border: 1px solid $black-color;
+    padding: 20px 16px;
+    border-radius: 12px;
+    &::placeholder {
+      opacity: 0.5;
+      color: $black-color;
+      font-size: $text-small;
+    }
+  }
+  button {
+    position: absolute;
+    background: none;
+    margin-right: 16px;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+  }
 }
 
-.header_input {
-  width: 70%;
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  .authBtn {
+    background: $grey;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid $black-color;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: $text-small;
+  }
+  .regBtn {
+    background: $purple-color;
+  }
+}
+
+
+
+.burgerBtn {
+  width: 32px;
+  height: 3px;
+  background: $purple-color;
+  border-radius: 3px;
+  position: relative;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: $purple-color;
+    height: 3px;
+    border-radius: 3px;
+  }
+  &::before {
+    top: -200%;
+  }
+  &::after {
+    bottom: -200%;
+  }
+}
+
+.burgerBtnClosed {
+  position: absolute !important;
+  top: 5%;
+  left: 5%;
+  z-index: 5;
+  width: 32px;
+  height: 3px;
+  background: $purple-color;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    transform: rotate(90deg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $purple-color;
+    height: 3px;
+    border-radius: 3px;
+  }
+}
+
+.roleBtn {
   padding: 16px;
-  height: 20px;
+  color: $black-color;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: .2s linear;
+  &:hover {
+  }
+  &.active {
+    color: #fff;
+    background: $purple-color;
+    &:hover {
+      background: rgba(88, 93, 251, 0.85);
+    }
+  }
+}
+
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1025px) {
+  .wrapper {
+    grid-gap: 36px;
+  }
+  .logo {
+    scale: 0.65;
+    svg {
+    }
+  }
+  .buttonsWrapper {
+    button {
+      font-size: 14px;
+      padding: 12px 18px;
+    }
+  }
+  .inputBody {
+    input {
+      padding: 14px 18px;
+    }
+  }
+}
+
+@media (max-width: 875px) {
+  .wrapper {
+    grid-gap: 0;
+    .buttonsWrapper {
+      margin-left: 15px;
+      grid-gap: 15px;
+    }
+  }
+  .inputBody {
+    input {
+      &::placeholder {
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .wrapper {
+    grid-gap: 10px;
+  }
+  .regBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    justify-content: space-between;
+  }
+  .inputBody {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonsWrapper {
+    .authBtn {
+      background: $purple-color;
+      border: none;
+      padding: 10px 12px;
+    }
+  }
+
 }

@@ -1,3 +1,5 @@
+@import "src/app/styles/mixins";
+
 .close_btn {
   border-radius: 80px;
   border: 2px solid var(--4E5662, #4e5662);
@@ -8,4 +10,44 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.inputForm {
+  @include input(100%, 16px)
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 20px;
+}
+
+.languageWrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+}
+
+.selectedLanguage {
+  span {
+    @include text(16px, 120%, 500, $grey)
+  }
+}
+
+.form {
+  margin-bottom: $margin-xxxl;
+}
+
+.sendFormBtn {
+  @include button(100%, 16px)
+}
+
+@media (max-width: 480px) {
+  .languageWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form {
+    margin-bottom: 24px;
+  }
 }

@@ -2,18 +2,19 @@ import {
   Route,
   RouterProvider,
   createBrowserRouter,
-  createRoutesFromElements,
+  createRoutesFromElements, Routes, Router,
 } from "react-router-dom";
 import Layout from "src/app/layout/layout";
 import { routerConfig } from "../config/router.config";
 
 const AppRouter = () => {
   const routes = () => (
-    <Route element={<Layout />}>
-      {Object.values(routerConfig).map((route) => (
-        <Route path={route.path} element={route.element} key={route.path} />
-      ))}
-    </Route>
+        <Route element={<Layout />}>
+          {Object.values(routerConfig).map((route) => (
+              <Route path={route.path} element={route.element} key={route.path} />
+          ))}
+        </Route>
+
   );
 
   const router = createBrowserRouter(createRoutesFromElements(routes()));

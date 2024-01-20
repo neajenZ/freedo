@@ -3,7 +3,7 @@
     "avatar": "src/shared/assets/images/user.png",
     "first_name": "Александра",
     "last_name": "Миро",
-    "contacts": ["@Harygoter", "@Harygoter", "@Harygoter"],
+    "contacts": ["Discord", "Whats app", "Telegram"],
     "payments": ["MIR", "DISCOVER", "VISA", "MASTER_CARD", "MIR", "MIR",  "MASTER_CARD", "MASTER_CARD"],
     "languages": ["antigua","colombia","argentina","usa","canada","grenada","haiti"],
     "date": "2022-12-23",

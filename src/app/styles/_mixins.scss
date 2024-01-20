@@ -1,3 +1,5 @@
+@import "variavles";
+
 @mixin text($font-size, $line-height, $font-weight, $color: #111011) {
   font-size: $font-size;
   line-height: $line-height;
@@ -15,4 +17,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin about-text {
+  font-size: 25px;
+  font-weight: 500;
+  color: $black-color;
+}
+
+@mixin input ($width, $padding) {
+  font-size: $text-small;
+  font-weight: 500;
+  width: $width;
+  border-radius: 12px;
+  border: 1px solid $black-color;
+  padding: $padding;
+  &::placeholder {
+    color: $grey;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
+@mixin button ($width, $padding) {
+  width: $width;
+  font-size: $text-small;
+  font-weight: 500;
+  color: #ffffff;
+  padding: $padding;
+  background: $purple-color;
+  border-radius: 10px;
+  border: 1px solid $black-color;
 }

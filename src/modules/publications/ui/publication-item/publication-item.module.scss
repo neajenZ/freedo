@@ -4,17 +4,59 @@
   will-change: transform;
   background-color: white;
   max-width: 800px;
-  padding: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  //padding: 40px;
   border-radius: 20px;
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
-  justify-content: space-between;
+  //display: flex;
+  //gap: 24px;
+  //flex-direction: column;
+  //justify-content: space-between;
   transition: all 0.3s;
   &:hover {
     background-color: rgba(236, 236, 254, 1);
     box-shadow: 0 0 0 2px #585dfb;
     transform: scale(0.97);
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  grid-gap: $margin-xl;
+}
+
+.descItem {
+  padding: 0 $margin-xxxl 30px $margin-xxxl;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  grid-gap: $margin-xl;
+}
+
+.cardNotImage {
+  padding: $margin-xxxl;
+}
+
+.imageItem {
+  width: 100%;
+  height: 350px;
+  border-radius: 20px 20px 0 0;
+  background: url("src/shared/assets/images/card.jpg") center no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  .sliderButtons {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: stretch;
+    grid-gap: 10px;
+    button {
+      height: 3px;
+      width: 75px;
+      background: $purple-color;
+    }
   }
 }
 
@@ -84,6 +126,8 @@
   }
 }
 
+
+
 .countries {
   display: flex;
   gap: 20px;
@@ -126,6 +170,55 @@
     &__text {
       grid-row: 2 / 3;
       grid-column: 2 / 3;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .publication {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .publication {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication {
+    max-width: 350px;
+
+    .imageItem {
+      height: 185px;
+      background-size: 100% 100% !important;
+    }
+
+    .header__text {
+      p {
+        font-size: 16px;
+      }
+      .subtitle {
+        font-size: 12px;
+      }
+    }
+    .cardNotImage {
+      padding: 16px !important;
+    }
+    .description {
+      padding-left: 0;
+      @include text(16px, 20px, 400);
+      &__text {
+        max-height: 60px;
+        white-space: initial;
+        text-overflow: clip;
+        overflow: hidden;
+      }
+    }
+    .descItem {
+      grid-gap: 16px;
+      padding: 0 16px 16px 16px;
     }
   }
 }

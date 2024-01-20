@@ -1,0 +1,88 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.body {
+  width: 100%;
+  padding: 80px;
+  border-radius: 20px;
+  border: 1px solid $purple-color;
+  margin: 15px 0;
+}
+
+.wrapper {
+  margin-top: 60px;
+  grid-gap: 30px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.elem {
+  display: flex;
+  align-items: flex-start;
+  grid-gap: $margin-xxxl;
+  width: 100%;
+  h4 {
+    min-width: 110px;
+    font-size: $text-small;
+    color: $black-color;
+    font-weight: 500;
+  }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  grid-gap: 9px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  grid-gap: 15px;
+  h4 {
+    font-size: $text-small;
+    color: $grey;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+}
+
+.loadImageBody {
+  position: relative;
+  input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+  input:focus + span {
+    box-shadow: 0 0 2px 2px #fff;
+  }
+}
+
+.commentInput {
+  resize: none;
+  height: 150px;
+  padding: $margin-xl;
+  width: 100%;
+  border: 1px solid $black-color;
+  border-radius: 10px;
+}
+
+.choiceFileModule {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 30px 60px;
+  box-sizing: border-box;
+  border: 1px solid $black-color;
+}
+
+.sendFormBtn {
+  @include button(100%, 10px 20px)
+}

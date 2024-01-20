@@ -1,0 +1,161 @@
+@import "src/app/styles/variavles";
+
+$card-width: 820px;
+
+.cardBody {
+  max-width: $card-width;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid $black-color;
+}
+
+.container {
+  padding: 20px 40px 30px 40px;
+}
+
+.imgWrapper {
+  max-width: 820px;
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.headTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  grid-gap: 4px;
+}
+
+.textWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #585DFB;
+  img {
+    width: 100%;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  grid-gap: $margin-xl;
+}
+
+.name {
+  font-weight: 700;
+  font-size: $text-small;
+  color: var($black-color);
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: $grey;
+  margin-top: 5px;
+}
+
+.stars {
+  padding: 5px 10px;
+  border-radius: 40px;
+  display: inline-block;
+  border: 1px solid $black-color;
+  color: #fff;
+  background: $purple-color;
+  white-space: nowrap;
+}
+
+.text {
+  margin-top: $margin-xl;
+  font-size: 16px;
+  font-weight: 400;
+  color: $black-color;
+  line-height: 120%;
+}
+
+.countriesWrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: $margin-xl;
+  grid-gap: $margin-xl;
+}
+
+.countryItem {
+  border-radius: 5px;
+  border: 1px solid $black-color;
+  padding: 5px 10px;
+}
+
+@media (max-width: 1320px) {
+  .name {
+    font-size: $text-very-small;
+  }
+  .date {
+    font-size: 13px;
+  }
+  .text {
+    font-size: 15px;
+  }
+  .container {
+    padding: 20px 30px 30px 30px;
+  }
+}
+
+@media (max-width: 780px) {
+  .container {
+    padding: 20px 22px 30px 22px;
+  }
+}
+
+@media (max-width: 395px) {
+  .right {
+    .price {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .text {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .name {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .date {
+    display: none;
+  }
+}

@@ -1,13 +1,17 @@
 import { UserCard } from "src/modules/user";
-import { UserWorkExperience } from "src/modules/user-work-experience";
 import styles from "./profile-page.module.scss";
+import {UserInfo} from "src/modules/user-info/ui/user-info.tsx";
 
 const UserProfilePage = () => {
   return (
-    <div className={styles.profile}>
-      <UserCard />
-      <UserWorkExperience />
-    </div>
+      <div className='container'>
+          <div className={styles.profile}>
+              <UserCard />
+              {/*<UserWorkExperience />*/}
+              <UserInfo />
+          </div>
+      </div>
+
   );
 };
 

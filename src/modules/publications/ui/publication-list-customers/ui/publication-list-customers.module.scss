@@ -1,0 +1,15 @@
+@import "src/app/styles/variavles";
+
+.navWrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 19px;
+  padding: 74px 0 45px 0;
+  .dropdownBtn {
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 16px;
+    color: $grey;
+  }
+}
+

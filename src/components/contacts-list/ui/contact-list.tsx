@@ -10,11 +10,11 @@ const ContactList = (props: ContactListProps) => {
   return (
     <div className={styles.contacts}>
       {contacts.map((item, i) => (
-            <div key={`${item}-${i}`} className={`${styles.contacts__item} ${contacts.length % 2 && styles.contacts__item_odd}`}>
+            <button key={`${item}-${i}`} className={`${styles.contacts__item} ${contacts.length % 2 && styles.contacts__item_odd}`}>
               {/* перенести из старого проекта note.svg */}
               <SocialIcon/>
-              <span className={styles.contacts__social}>{item}</span>
-            </div>
+              <h4 className={styles.contacts__social}>{item}</h4>
+            </button>
           ))}
     </div>
   );

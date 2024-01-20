@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.say {
+  //@include text-bold($header-h1, $color-black-99101)
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.seeAll {
+  cursor: pointer;
+  //@include text-bold($text-large-user, $color-black-99101)
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mySwiper {
+  width: 100%;
+}
+
+.custom {
+  background-color: black;
+}
+
+.swiperCont {
+  position: relative;
+  width: 100%;
+}

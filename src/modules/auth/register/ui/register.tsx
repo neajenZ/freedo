@@ -28,32 +28,24 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <Input
-        {...register("first_name", { required: true })}
-        placeholder="Имя"
-        error={errors.first_name}
-      />
-      <span className="error">{errors.first_name?.message}</span>
-      <Input
-        {...register("last_name", { required: true })}
-        placeholder="Фамилия"
-      />
-      <span className="error">{errors.last_name?.message}</span>
-      <Input {...register("email", { required: true })} placeholder="Почта" />
-      <span className="error">{errors.email?.message}</span>
-      <Input
-        {...register("password", { required: true })}
-        placeholder="Пароль"
-      />
-      <span className="error">{errors.password?.message}</span>
-      <Input
-        {...register("repeat_password", { required: true })}
-        placeholder="Повторите пароль"
-      />
-      <span className="error">{errors.repeat_password?.message}</span>
-      <Button variant="filled" type="submit">
-        Войти
-      </Button>
+        <div className={styles.inputWrapper}>
+            <input className={styles.inputForm} placeholder={'Имя'} type="text"/>
+            <input className={styles.inputForm} placeholder={'Фамилия'} type="text"/>
+        </div>
+        <div className={styles.languageWrapper}>
+            <input className={styles.inputForm} placeholder={'Язык'} type="text"/>
+            <div className={styles.selectedLanguage}>
+                <span>Выбраны:</span>
+
+            </div>
+        </div>
+        <input className={styles.inputForm} placeholder={'Почта'} type="text"/>
+        <div className={styles.inputWrapper}>
+            <input className={styles.inputForm} placeholder={'Пароль'} type="text"/>
+            <input className={styles.inputForm} placeholder={'Повторите пароль'} type="text"/>
+        </div>
+
+        <button className={styles.sendFormBtn}>Зарегистрироваться</button>
     </form>
   );
 };

@@ -1,0 +1,98 @@
+@import "src/app/styles/variavles";
+
+.body {
+
+}
+
+.generalRating {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: $margin-xl;
+  p {
+    font-size: $text-very-small;
+    font-weight: 700;
+    color: $grey;
+    margin-top: 10px;
+  }
+}
+
+.generalRatingWrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+
+  h3 {
+    color: $black-color;
+    font-weight: 700;
+    font-size: $text-header-h1;
+  }
+}
+
+.ratingLineWrapper {
+  margin-top: $margin-xl;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 5px;
+}
+
+.sendReviewBody {
+  max-width: 208px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  p {
+    font-size: $text-small;
+    color: $black-color;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  button {
+    border: 1px solid $black-color;
+    background: $purple-color;
+    color: #ffffff;
+    padding: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+  }
+}
+
+.headWrapper {
+  display: flex;
+  grid-gap: 40px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.reviewsWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: $margin-xxxl;
+  grid-gap: $margin-xl;
+  width: 100%;
+}
+
+@media (max-width: 830px) {
+  .headWrapper {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .sendReviewBody {
+    min-width: 100% !important;
+
+    p {
+      display: none;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .titleSection {
+    font-size: 23px !important;
+  }
+}

@@ -1,0 +1,67 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.body {
+  max-width: 1376px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.desc {
+  font-size: 20px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 60px;
+}
+
+.imgBody {
+  max-width: 425px;
+  width: 100%;
+  background: url("src/shared/assets/images/auth.png") center no-repeat;
+  border-radius: 5px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.auth_header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.headerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  button {
+    font-size: $text-large;
+    font-weight: 500;
+    color: $purple-color;
+  }
+}
+
+.switch_link {
+  color: var(--585DFB, #585dfb);
+  cursor: pointer;
+  margin-left: 15px;
+}
