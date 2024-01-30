@@ -2,11 +2,11 @@ import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../../api/auth.api";
 import { Button, Input } from "src/shared/ui";
 import styles from "./login.module.scss";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {IUserAuth} from "src/app/types/user.ts";
-import {useAppDispatch} from "src/shared/hooks/reduxHooks.ts";
-import {postUserAuth, setRecoverPass} from "src/shared/slice/user-slice.ts";
-import {useNavigate} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
+import userSlice, {postUserAuth, setRecoverPass} from "src/shared/slice/user-slice.ts";
+import {redirect, useNavigate} from "react-router-dom";
 
 type LoginForm = {
   email: string;
@@ -14,17 +14,12 @@ type LoginForm = {
 };
 
 const Login = () => {
-  const [handleLogin] = useLoginMutation();
-  const [emailValue, setEmail] = useState('')
-  const { register, handleSubmit, reset } = useForm<LoginForm>();
+    const {userSlice} = useAppSelector(state => state)
+    const [emailValue, setEmail] = useState('')
     const [passwordValue, setPassword] = useState('')
     const dispatch = useAppDispatch()
     const [isChecked, setChecked] = useState(false)
     const navigate = useNavigate()
-  // const onSubmit = async (data: LoginForm) => {
-  //   await handleLogin(data);
-  //   reset();
-  // };
 
     const submitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
@@ -34,6 +29,12 @@ const Login = () => {
         }
         dispatch(postUserAuth(formData))
     }
+
+    useEffect(() => {
+        if (userSlice.isRedirect === true) {
+            navigate('/')
+        }
+    }, [userSlice.isRedirect]);
 
   return (
     <div>

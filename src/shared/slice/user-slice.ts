@@ -1,7 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
-import {IUserAuth} from "src/app/types/user.ts";
-
+import {ICreatedAdData, IUserAuth} from "src/app/types/user.ts";
+import Cookies from "js-cookie";
+import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 
 export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     `get-info/user`,
@@ -9,8 +10,7 @@ export const postUserAuth = createAsyncThunk<any, IUserAuth>(
         try {
             const response = await axiosInstance.post('/auth/token', data, {
                 headers: {
-                    "Content-Type": "application/json",
-                    'Access-Control-Allow-Origin': '*'
+                    
                 }
             })
             return response.data
@@ -20,12 +20,26 @@ export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     }
 )
 
+
+// Подумать над redirect
 interface IInitialState {
     isLoading: boolean,
     isError: boolean,
+    isAuth: boolean,
+    isRedirect: boolean,
     isRecoverPass: boolean,
     typeAuth: 'register' | 'login' | 'initial',
-    role: 'customer' | 'executor'
+    role: 'customer' | 'executor',
+    subcategoriesList: {
+        name: string,
+        id: string,
+        subcategories: string[]
+    },
+    createAdInfo: {
+        category: string,
+        subCategory: string,
+        data: ICreatedAdData
+    }
 }
 
 type UserRole = 'customer' | 'executor'
@@ -34,12 +48,36 @@ interface IAction <T> {
     payload: T
 }
 
+
+// Рефакторить
 const initialState:IInitialState = {
     isLoading: false,
     isError: false,
+    isAuth: false,
+    isRedirect: false,
     isRecoverPass: false,
     typeAuth: "initial",
-    role: 'customer'
+    role: 'customer',
+    subcategoriesList: {
+        name: '',
+        id: '',
+        subcategories: []
+    },
+    createAdInfo: {
+        category: '',
+        subCategory: '',
+        data: {
+            type: 'executor',
+            status: null,
+            title: '',
+            description: '',
+            images: '',
+            price: {
+                value: 0,
+                currency: 'rub'
+            }
+        }
+    }
 }
 
 const UserSlice = createSlice({
@@ -54,6 +92,12 @@ const UserSlice = createSlice({
         },
         changeRole (state, action:IAction<UserRole>) {
             state.role = action.payload
+        },
+        changeCreatedAdRole (state, action:IAction<UserRole>) {
+            state.createAdInfo.data.type = action.payload
+        },
+        createdAdStatus (state, action) {
+            state.createAdInfo.data.status = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -63,15 +107,34 @@ const UserSlice = createSlice({
         })
             .addCase(postUserAuth.fulfilled, (state, action) => {
                 state.isLoading = false
-                console.log(action.payload)
+                state.isAuth = true
+                state.isRedirect = true
+                Cookies.set('accessToken', action.payload.access_token)
+                Cookies.set('refreshToken', action.payload.refresh_token)
             })
-            .addCase(postUserAuth.rejected, (state, action) => {
+            .addCase(postUserAuth.rejected, (state) => {
+                state.isLoading = false
+                state.isError = true
+            });
+        builder
+            .addCase(postSubcategories.pending, state => {
+            })
+            .addCase(postSubcategories.fulfilled, (state, action) => {
+                state.subcategoriesList = action.payload
+            })
+            .addCase(postSubcategories.rejected, (state) => {
                 state.isLoading = false
                 state.isError = true
             });
     }
 })
 
-export const {setRecoverPass, changeTypeAuth, changeRole} = UserSlice.actions
+export const {
+    setRecoverPass,
+    changeTypeAuth,
+    changeCreatedAdRole,
+    changeRole,
+    createdAdStatus
+} = UserSlice.actions
 
 export default UserSlice.reducer

@@ -2,7 +2,7 @@ import { Box, Button, Input, LogoIcon, UserIcon } from "src/shared/ui";
 import styles from "./header.module.scss";
 import {Link, useNavigate} from "react-router-dom";
 import { RoutePath } from "src/shared/const";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Avatar, IconButton} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
 import {changeRole} from "src/shared/slice/user-slice.ts";
@@ -15,6 +15,7 @@ const Header = () => {
   const [isBurgerMenu, setBurgerMenu] = useState(false)
     const userWidjet = usePopupClosed(true)
     const [userDropdown, setDropdown] = useState(false)
+
   return (
       <header className={styles.header}>
           <div className="container">
@@ -57,32 +58,38 @@ const Header = () => {
                   </div>
 
                   <div className={styles.buttonsWrapper}>
-                      {/*<Link to={'/auth'}>*/}
-                      {/*    <button className={styles.authBtn}>Войти</button>*/}
-                      {/*</Link>*/}
-                      {/*<button className={`${styles.authBtn} ${styles.regBtn}`}>Зарегистрироваться</button>*/}
-                      <button
-                          onClick={() => dispatch(changeRole("customer"))}
-                          className={`${styles.roleBtn} ${userSlice.role === 'customer' && styles.active}`}
-                      >
-                          Заказчик
-                      </button>
+                      {
+                          !userSlice.isAuth ?
+                              <>
+                                  <Link to={'/auth'}>
+                                      <button className={styles.authBtn}>Войти</button>
+                                  </Link>
+                                  <button className={`${styles.authBtn} ${styles.regBtn}`}>Зарегистрироваться</button>
+                              </> :
+                              <>
+                                  <button
+                                      onClick={() => dispatch(changeRole("customer"))}
+                                      className={`${styles.roleBtn} ${userSlice.role === 'customer' && styles.active}`}
+                                  >
+                                      Заказчик
+                                  </button>
 
-                      <button
-                          onClick={() => dispatch(changeRole("executor"))}
-                          className={`${styles.roleBtn} ${userSlice.role === 'executor' && styles.active}`}
-                      >
-                          Исполнитель
-                      </button>
+                                  <button
+                                      onClick={() => dispatch(changeRole("executor"))}
+                                      className={`${styles.roleBtn} ${userSlice.role === 'executor' && styles.active}`}
+                                  >
+                                      Исполнитель
+                                  </button>
 
-                      <IconButton
-                        onClick={() => userWidjet.setIsComponentVisible(!userWidjet.isComponentVisible)}
-                      >
-                          <Avatar
-                              sx={{border: `1px solid black`}}
-                          />
-                      </IconButton>
-
+                                  <IconButton
+                                      onClick={() => userWidjet.setIsComponentVisible(!userWidjet.isComponentVisible)}
+                                  >
+                                      <Avatar
+                                          sx={{border: `1px solid black`}}
+                                      />
+                                  </IconButton>
+                              </>
+                      }
                   </div>
                   {
                       userWidjet.isComponentVisible &&

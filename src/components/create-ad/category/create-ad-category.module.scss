@@ -1,0 +1,22 @@
+@import "src/app/styles/variavles";
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  grid-gap: 25px;
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 40px 50px;
+  border-radius: 20px;
+  background: $grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $black-color;
+  font-size: 24px;
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
+}

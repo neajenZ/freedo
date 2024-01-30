@@ -41,12 +41,12 @@
 }
 
 @mixin button ($width, $padding) {
-  width: $width;
-  font-size: $text-small;
-  font-weight: 500;
-  color: #ffffff;
-  padding: $padding;
-  background: $purple-color;
-  border-radius: 10px;
-  border: 1px solid $black-color;
+  width: $width !important;
+  font-size: $text-small !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
+  padding: $padding !important;
+  background: $purple-color !important;
+  border-radius: 10px !important;
+  border: 1px solid $black-color !important;
 }

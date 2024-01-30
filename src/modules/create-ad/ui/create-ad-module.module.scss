@@ -1,0 +1,32 @@
+@import 'src/app/styles/variavles';
+
+.body {
+  max-width: 888px;
+  min-width: 600px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: $margin-xxxl;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    color: $black-color;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  button {
+    color: $purple-color;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+
+.wrapper {
+  margin-top: $margin-xxxl;
+}

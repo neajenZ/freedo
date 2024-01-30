@@ -1,0 +1,136 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.formWrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  grid-gap: 24px;
+}
+
+.imgLoaderBody {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  grid-gap: 24px;
+}
+
+.previewImages {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  grid-gap: $margin-xxxl;
+  img {
+    border-radius: 16px;
+    width: 98px;
+    height: 57px;
+  }
+}
+
+.stepBtn {
+  @include button(auto, 16px 24px);
+  &.prev {
+    background: $grey !important;
+  }
+}
+
+.previewBody {
+  border-radius: 20px;
+  position: relative;
+
+  .deletePreviewImg {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    path {
+      fill: white;
+    }
+  }
+  &:hover {
+    .deletePreviewImg {
+      display: block;
+      z-index: 3;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+    }
+  }
+}
+
+.formItem {
+  display: flex;
+  align-items: center;
+  grid-gap: $margin-xl;
+  width: 100%;
+
+  .priceInput {
+    width: 30%;
+  }
+  &.fieldWrapper {
+    align-items: flex-start;
+  }
+  h4 {
+    width: 80px;
+    color: $black-color;
+    font-weight: 500;
+    font-size: $text-small;
+  }
+
+  textarea {
+    resize: none;
+    @include input(100%, 16px);
+    height: 100px;
+  }
+
+  input {
+    @include input(100%, 16px)
+  }
+
+  button {
+    font-weight: 700;
+    font-size: $text-small;
+    color: $black-color;
+    padding: 10px $margin-xl;
+    border-radius: $margin-xl;
+    transition: background-color, color, .2s linear;
+    &.active {
+      background-color: $purple-color;
+      color: #ffffff;
+    }
+  }
+
+  .buttonWrapper {
+    display: flex;
+    align-items: stretch;
+    grid-gap: 10px;
+
+    .statusBtn {
+      color: $black-color;
+      font-size: $text-small;
+      font-weight: 500;
+      padding: 5px;
+      border: 1px solid $black-color;
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      &.active {
+        background-color: $purple-color;
+        color: #fff !important;
+      }
+    }
+  }
+}

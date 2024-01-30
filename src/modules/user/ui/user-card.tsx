@@ -4,11 +4,13 @@ import {LanguageList, LangView} from "../../../components/language-list";
 import {ContactList} from "src/components/contacts-list";
 import {PaymentList} from "src/components/payment-list";
 import avatar from './avatar.png'
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import ReCaptcha from 'react-google-recaptcha'
 
 
 const UserCard = () => {
   const { data} = useUserQuery();
+  const [isCaptcha, setCaptcha] = useState()
 
   if (!data) return null;
 
@@ -21,14 +23,39 @@ const UserCard = () => {
                     <h3 className={styles.name}>{data.first_name} {data.last_name}</h3>
                     <span className={styles.views}>{data.views}</span>
                 </div>
-                <div className={styles.info__bottom}>
+                <div onClick={() => console.log(isCaptcha)} className={styles.info__bottom}>
                     <div className={styles.date}>1 год на площадке</div>
                     <LanguageList languages={data.languages} variant={LangView.Popup}/>
                 </div>
             </div>
         </div>
-        <ContactList contacts={data.contacts} />
-        <PaymentList payments={data.payments} />
+        <div className={styles.wrapperCont}>
+            {
+                !isCaptcha ?
+                    <div className={styles.captchaWrapper}>
+                        <h4>Хотите увидеть контакты?</h4>
+                        <ReCaptcha
+                            onChange={(cap) => setCaptcha(cap)}
+                            sitekey={`6LcWNF4pAAAAANUWFGsLFyyNnxSCtyIjxCaqkl7h`}
+                        />
+                    </div>
+                    : null
+
+
+            }
+
+            <div className={`${styles.contactsWrapper} ${isCaptcha ? styles.activeCon : null}`}>
+                {
+                    isCaptcha && (
+                        <>
+                            <ContactList contacts={data.contacts} />
+                            <PaymentList payments={data.payments} />
+                        </>
+                    )
+                }
+            </div>
+        </div>
+
     </div>
   );
 };

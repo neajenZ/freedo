@@ -1,0 +1,13 @@
+@import "src/app/styles/variavles";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: $margin-xxxl;
+  flex-wrap: wrap;
+  span {
+    color: $black-color;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

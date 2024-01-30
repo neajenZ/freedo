@@ -1,0 +1,71 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: column;
+
+  .dropdownWrapper {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+
+    span {
+      font-size: $text-small;
+      color: $black-color;
+      font-weight: 500;
+    }
+
+    p {
+      color: $grey;
+      font-size: $text-very-small;
+      font-weight: 400;
+    }
+
+    .dropdown {
+      margin: 20px 0 10px 0;
+      width: 100%;
+      border: 1px solid $black-color;
+      padding: $margin-xl;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      
+      h4 {
+        font-size: $text-small;
+        font-weight: 500;
+        color: $grey;
+        user-select: none;
+      }
+    }
+  }
+}
+
+.socialsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  grid-gap: 16px;
+  margin-top: 24px;
+
+  .socialItem {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    h4 {
+      width: 85px;
+      font-size: $text-small;
+      color: $grey;
+      font-weight: 500;
+      line-height: 120%;
+    }
+    input {
+      @include input(100%, 16px)
+    }
+  }
+}

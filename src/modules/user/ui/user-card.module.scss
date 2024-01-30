@@ -43,11 +43,50 @@
   }
 }
 
+.captchaWrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  grid-gap: 10px;
+  h4 {
+    color: $black-color;
+    font-size: $text-very-small;
+    font-weight: 500;
+  }
+}
+
+.wrapperCont {
+}
+
+.contactsWrapper {
+  //height: 0;
+  //transition: height 4s linear;
+
+  //background-color: #eee;
+  //transform: translateY(-100%);
+  //transform-origin: top;
+  //transition: transform .1s ease;
+  display: flex;
+  flex-direction: column;
+  grid-gap: $margin-xl;
+  scale: 0;
+  opacity: 0;
+  transition: scale, opacity 1.5s linear;
+}
+
+.activeCon {
+  scale: 1;
+  opacity: 1;
+}
+
+
+
 .headerWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   grid-gap: $margin-xxxl;
+  z-index: 2;
 }
 
 @media (max-width: 1281px) {
