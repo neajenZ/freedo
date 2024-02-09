@@ -1,17 +1,9 @@
-import { useForm } from "react-hook-form";
-import { useLoginMutation } from "../../api/auth.api";
-import { Button, Input } from "src/shared/ui";
 import styles from "./login.module.scss";
 import {useEffect, useState} from "react";
 import {IUserAuth} from "src/app/types/user.ts";
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
-import userSlice, {postUserAuth, setRecoverPass} from "src/shared/slice/user-slice.ts";
-import {redirect, useNavigate} from "react-router-dom";
-
-type LoginForm = {
-  email: string;
-  password: string;
-};
+import {postUserAuth} from "src/shared/slice/user-slice.ts";
+import { useNavigate} from "react-router-dom";
 
 const Login = () => {
     const {userSlice} = useAppSelector(state => state)

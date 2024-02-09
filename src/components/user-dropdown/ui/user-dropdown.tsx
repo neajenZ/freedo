@@ -18,7 +18,7 @@ export const UserDropdown = ({id, lastname, name}: IUserDropdown) => {
                 </div>
                 <div className={styles.buttonWrapper}>
                     <button>Редактировать профиль</button>
-                    <button>Выйти</button>
+                    <button className={styles.btnLogout}>Выйти</button>
                 </div>
 
             </div>

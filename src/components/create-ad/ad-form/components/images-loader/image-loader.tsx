@@ -1,7 +1,6 @@
 import styles from "src/components/create-ad/ad-form/ad-form.module.scss";
 import {ImgLoader} from "src/components/img-loader/ui/img-loader.tsx";
 import {useState} from "react";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {DeleteBasketIcon} from "src/shared/ui/icons/DeleteBasketIcon.tsx";
 export const CreateAdImg = () => {
     const [image, setImage] = useState<File>()
@@ -10,6 +9,7 @@ export const CreateAdImg = () => {
     const loadImg = (e: React.FormEvent<HTMLInputElement>) => {
         if (e.currentTarget.files) {
             setImage(e.currentTarget.files[0])
+            console.log(image)
             try {
                 if (url.length > 5) {
                     return alert('Max 5 images')

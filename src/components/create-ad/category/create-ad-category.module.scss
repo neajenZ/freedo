@@ -10,7 +10,7 @@
 .item {
   padding: 40px 50px;
   border-radius: 20px;
-  background: $grey;
+  background: #ECECFE;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,4 +19,20 @@
   font-weight: 400;
   user-select: none;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+    flex-wrap: wrap;
+  }
+  .item {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 19px 12px;
+    text-align: center;
+    border-radius: 12px;
+  }
 }

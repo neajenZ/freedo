@@ -76,7 +76,7 @@
   align-items: center;
   grid-gap: $margin-xl;
   width: 100%;
-
+  position: relative;
   .priceInput {
     width: 30%;
   }
@@ -132,5 +132,46 @@
         color: #fff !important;
       }
     }
+  }
+}
+
+.currencyWrapper {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  z-index: 1;
+  transform: translate(0, 0);
+}
+
+@media (max-width: 480px) {
+  .formWrapper {
+    grid-gap: 16px;
+  }
+
+  .formItem {
+    flex-direction: column;
+    align-items: flex-start;
+    grid-gap: 8px;
+
+    &.roleWrapper {
+      flex-direction: row;
+      align-items: center;
+
+      .buttonWrapper {
+        grid-gap: 8px;
+      }
+    }
+
+    .priceInput {
+      width: 100%;
+      display: block;
+    }
+  }
+  .stepBtn {
+    width: 100% !important;
+  }
+  .previewImages {
+    flex-wrap: wrap;
+    grid-gap: 8px;
   }
 }

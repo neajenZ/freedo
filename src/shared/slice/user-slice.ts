@@ -3,6 +3,8 @@ import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
 import {ICreatedAdData, IUserAuth} from "src/app/types/user.ts";
 import Cookies from "js-cookie";
 import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
+import {getCategories} from "src/shared/slice/Api/getCategories.ts";
+import {ICategory} from "src/app/types/categories.ts";
 
 export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     `get-info/user`,
@@ -30,6 +32,7 @@ interface IInitialState {
     isRecoverPass: boolean,
     typeAuth: 'register' | 'login' | 'initial',
     role: 'customer' | 'executor',
+    categories: ICategory[],
     subcategoriesList: {
         name: string,
         id: string,
@@ -44,7 +47,7 @@ interface IInitialState {
 
 type UserRole = 'customer' | 'executor'
 interface IAction <T> {
-    type: '',
+    type: string,
     payload: T
 }
 
@@ -58,6 +61,9 @@ const initialState:IInitialState = {
     isRecoverPass: false,
     typeAuth: "initial",
     role: 'customer',
+    categories: [
+
+    ],
     subcategoriesList: {
         name: '',
         id: '',
@@ -117,12 +123,23 @@ const UserSlice = createSlice({
                 state.isError = true
             });
         builder
-            .addCase(postSubcategories.pending, state => {
+            .addCase(postSubcategories.pending, () => {
             })
             .addCase(postSubcategories.fulfilled, (state, action) => {
                 state.subcategoriesList = action.payload
             })
             .addCase(postSubcategories.rejected, (state) => {
+                state.isLoading = false
+                state.isError = true
+            });
+        builder
+            .addCase(getCategories.pending, () => {
+            })
+            .addCase(getCategories.fulfilled, (state, action) => {
+                state.categories = action.payload
+                state.isError = false
+            })
+            .addCase(getCategories.rejected, (state) => {
                 state.isLoading = false
                 state.isError = true
             });

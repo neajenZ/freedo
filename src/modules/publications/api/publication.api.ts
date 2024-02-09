@@ -7,9 +7,8 @@ export const publicationApi = createApi({
   baseQuery,
   endpoints: (build) => ({
     publications: build.query<Publication[], void>({
-      query: (body) => ({
+      query: () => ({
         url: "publications",
-        body,
       }),
     }),
   }),

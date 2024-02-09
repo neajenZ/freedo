@@ -69,3 +69,17 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .socialsWrapper {
+    .socialItem {
+      h4 {
+        min-width: 75px;
+      }
+      input {
+        max-width: 100%;
+        @include input (100%, 12px)
+      }
+    }
+  }
+}

@@ -1,5 +1,4 @@
 import styles from './social-btn.module.scss'
-import GoogleIcon from "src/shared/ui/icons/GoogleIcon.tsx";
 import {ReactNode} from "react";
 
 interface ISocialBtn {

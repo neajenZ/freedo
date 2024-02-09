@@ -8,7 +8,6 @@
   position: absolute;
   right: 0;
   top: 150%;
-  z-index: 1000;
 
   .wrapper {
     display: flex;
@@ -39,11 +38,31 @@
       display: flex;
       align-items: stretch;
       grid-gap: $margin-xl;
-      button:last-child {
-        background: $grey;
+      .btnLogout {
+        background: $grey !important;
       }
       button {
         @include button(230px, 16px)
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    width: 100%;
+    .wrapper {
+      grid-gap: $margin-xl;
+      .nameWrapper {
+        font-size: 20px;
+      }
+      .buttonWrapper {
+        width: 100%;
+        flex-direction: column;
+        grid-gap: 8px;
+        button {
+          width: 100% !important;
+        }
       }
     }
   }

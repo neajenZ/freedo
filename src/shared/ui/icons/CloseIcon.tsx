@@ -1,18 +1,8 @@
 const CloseIcon = () => {
   return (
-    <svg
-      width="15"
-      height="18"
-      viewBox="0 0 15 18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        id="x"
-        d="M3.72214 0L7.5 7.00781L11.3113 0H14.9554L9.61738 9L15 18H11.3559L7.5 11.2734L3.65528 18H0L5.32689 9L0.0668647 0H3.72214Z"
-        fill="#4E5662"
-      />
-    </svg>
+      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 13.5L7.00002 7.50002M7.00002 7.50002L1 1.5M7.00002 7.50002L13 1.5M7.00002 7.50002L1 13.5" stroke="#262626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
   );
 };
 

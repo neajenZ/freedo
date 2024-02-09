@@ -1,10 +1,5 @@
 import {useEffect, useRef, useState} from "react";
 
-
-interface PopupProps {
-    initialIsVisible: boolean
-}
-
 export const usePopupClosed = ({initialIsVisible}: any) => {
 
     const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);

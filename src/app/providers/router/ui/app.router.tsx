@@ -2,7 +2,7 @@ import {
   Route,
   RouterProvider,
   createBrowserRouter,
-  createRoutesFromElements, Routes, Router,
+  createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "src/app/layout/layout";
 import { routerConfig } from "../config/router.config";

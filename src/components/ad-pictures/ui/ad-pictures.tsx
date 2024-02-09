@@ -2,7 +2,6 @@ import styles from './ad-pictures.module.scss'
 import imgXL from '../main.png'
 import imgXS from '../xs.png'
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation} from "swiper/modules";
 export const AdPictures = () => {
 
 

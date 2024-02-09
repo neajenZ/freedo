@@ -60,6 +60,7 @@
 
 
 .burgerBtn {
+  display: none;
   width: 32px;
   height: 3px;
   background: $purple-color;
@@ -193,9 +194,15 @@
   .inputBody {
     display: none;
   }
+  .burgerBtn {
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
+  .header {
+    padding: 5px 0;
+  }
   .buttonsWrapper {
     .authBtn {
       background: $purple-color;

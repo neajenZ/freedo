@@ -36,11 +36,13 @@ server.get("/user", (req, res) => {
   }
 });
 
-server.get("/publications", (req, res) => {
+server.get("/publications", async (req, res) => {
   try {
-    const data = JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
-    res.json(data.publications);
+    const data = await JSON.parse(readFileSync(path.resolve(__dirname, "db.json")));
+    console.log(data)
+    res.json(data);
   } catch (e) {
+    console.log(e)
     res.send(e);
   }
 });

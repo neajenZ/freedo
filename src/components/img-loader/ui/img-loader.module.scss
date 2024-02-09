@@ -16,6 +16,7 @@
   }
 }
 
+
 .loadImageBody {
   position: relative;
   input {
@@ -36,4 +37,11 @@
   padding: 30px 60px;
   box-sizing: border-box;
   border: 1px solid $black-color;
+}
+
+@media (max-width: 480px) {
+  .body {
+    grid-gap: 8px;
+  }
+
 }

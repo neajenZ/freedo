@@ -3,7 +3,7 @@ import {CameraIcon} from "src/shared/ui/icons/CameraIcon.tsx";
 
 interface IImgLoader {
     text: React.ReactNode | string,
-    loader: () => void
+    loader: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
 export const ImgLoader = ({text, loader}: IImgLoader) => {

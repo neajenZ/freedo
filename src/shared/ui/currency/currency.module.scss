@@ -1,0 +1,68 @@
+@import "src/app/styles/variavles";
+
+.body {
+  border-radius: 8px !important;
+  border: 1px solid $black-color;
+  padding: 4px 8px !important;
+  display: flex;
+  align-items: center;
+  font-weight: 500 !important;
+  grid-gap: 8px;
+
+  &.active {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.menuBody {
+  width: 164px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  position: absolute;
+  top: 150%;
+  right: 0;
+  -webkit-box-shadow: 4px 4px 35px 15px rgba(34, 60, 80, 0.25);
+  -moz-box-shadow: 4px 4px 35px 15px rgba(34, 60, 80, 0.25);
+  box-shadow: 4px 4px 35px 15px rgba(34, 60, 80, 0.25);
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h5 {
+      font-weight: 500;
+      font-size: $text-very-small;
+      line-height: 16px;
+      color: $black-color;
+    }
+    button {
+      padding: 0;
+    }
+  }
+
+  ul {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-gap: 8px;
+
+    li {
+      font-weight: 500;
+      font-size: $text-very-small;
+      color: $black-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 4px;
+      border-bottom: 1px solid $grey;
+    }
+  }
+}

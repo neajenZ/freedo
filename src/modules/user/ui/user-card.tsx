@@ -4,13 +4,13 @@ import {LanguageList, LangView} from "../../../components/language-list";
 import {ContactList} from "src/components/contacts-list";
 import {PaymentList} from "src/components/payment-list";
 import avatar from './avatar.png'
-import {useEffect, useRef, useState} from "react";
+import { useState} from "react";
 import ReCaptcha from 'react-google-recaptcha'
 
 
 const UserCard = () => {
   const { data} = useUserQuery();
-  const [isCaptcha, setCaptcha] = useState()
+  const [isCaptcha, setCaptcha] = useState<string | null>()
 
   if (!data) return null;
 

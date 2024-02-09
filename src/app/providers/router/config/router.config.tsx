@@ -5,7 +5,6 @@ import { AuthPage } from "src/pages/auth";
 import { AppRoutes, RoutePath } from "src/shared/const";
 import {AdPage} from "src/pages/ad";
 import {RecoverPassPage} from "src/pages/recover-pass";
-import {NotFoundPage} from "src/pages/not-found-page";
 
 export const routerConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {

@@ -1,12 +1,12 @@
 import styles from "src/modules/publications/ui/publication-list/publication-list.module.scss";
-import {IcoArrow} from "src/modules/publications/ui/ico-arrow.tsx";
 import PublicationItem from "src/modules/publications/ui/publication-item/publication-item.tsx";
 import {usePublicationsQuery} from "src/modules/publications/api/publication.api.ts";
 import {DropdownArrow} from "src/shared/ui/icons/DropdownArrow.tsx";
+import {useEffect} from "react";
+import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
 export const PublicationListCustomers = () => {
 
     const { data: publications } = usePublicationsQuery();
-
     return (
         <div className={'container'}>
             <div className={styles.navWrapper}>
