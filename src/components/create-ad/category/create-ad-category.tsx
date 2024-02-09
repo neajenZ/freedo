@@ -1,16 +1,16 @@
 import styles from './create-ad-category.module.scss'
-import {categories} from "src/components/create-ad/category/categories.ts";
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
 import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {useEffect} from "react";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
+import Cookies from "js-cookie";
 
 export const CreateAdCategory = () => {
     const dispatch = useAppDispatch()
     const {userSlice} = useAppSelector(state => state)
-
+    const token = Cookies.get('accessToken')
     useEffect(() => {
-        dispatch(getCategories())
+        token && dispatch(getCategories(token))
     }, []);
 
     return (

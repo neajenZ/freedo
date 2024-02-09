@@ -1,16 +1,15 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
-import Cookies from "js-cookie";
 
 
 
-export const getCategories = createAsyncThunk<any, any>(
+export const getCategories = createAsyncThunk<any, string>(
     'get/categories',
     async (data, {rejectWithValue}) => {
         try {
             const response = await axiosInstance.get('/categories', {
                 headers: {
-                    'Authorization': `Bearer ${Cookies.get('accessToken')}`
+                    'Authorization': `Bearer ${data}`
                 }
             })
 

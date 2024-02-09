@@ -10,7 +10,7 @@ const NotFoundPage = () => {
             </div>
             <div className={styles.wrapper}>
                 <h3>404</h3>
-                <p>Страница не найдена</p>
+                <p>Страница не найдена</p>
                 <Link to={'/'}>
                     <button>На главную</button>
                 </Link>

@@ -1,9 +1,5 @@
 import styles from "./publication-list.module.scss"
-import { usePublicationsQuery } from "../../api/publication.api";
-import PublicationItem from "../publication-item/publication-item";
 import {IcoArrow} from "src/modules/publications/ui/ico-arrow.tsx";
-import CardImg from 'src/shared/assets/images/card.jpg'
-import {useEffect} from "react";
 
 const PublicationList = () => {
   return (

@@ -35,7 +35,7 @@ export const UserReviews = () => {
                     </div>
                 </div>
                 <div className={styles.sendReviewBody}>
-                    <p>Рейтинг — это среднее арифметическое оценок ипользователей.</p>
+                    <p>Рейтинг — это среднее арифметическое оценок ипользователей.</p>
                     <button onClick={() => setReviewWidjet(!reviewWidjet)}>Оставить отзыв</button>
                 </div>
             </div>
