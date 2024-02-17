@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import styles from './recover-pass.module.scss'
 const RecoverPassPage = () => {
     const navigate = useNavigate()
+    // авыаывва
     return (
         <div className={'container'}>
             <div className={styles.contWrapper}>
