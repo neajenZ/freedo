@@ -1,7 +1,5 @@
-import { Box, Button, Input, LogoIcon, UserIcon } from "src/shared/ui";
 import styles from "./header.module.scss";
-import {Link, useNavigate} from "react-router-dom";
-import { RoutePath } from "src/shared/const";
+import {Link} from "react-router-dom";
 import {useState} from "react";
 import {Avatar, IconButton} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
@@ -14,7 +12,6 @@ const Header = () => {
     const {userSlice} = useAppSelector(state => state)
   const [isBurgerMenu, setBurgerMenu] = useState(false)
     const userWidjet = usePopupClosed(true)
-    const [userDropdown, setDropdown] = useState(false)
   return (
       <header className={styles.header}>
           <div className="container">

@@ -1,10 +1,5 @@
-import {useEffect, useState} from "react";
-
 import { useNavigate } from "react-router-dom";
-import { AuthImage } from "src/shared/assets";
 import {
-  Box,
-  Button,
   Card,
   FacebookIcon,
   GoogleIcon,
@@ -18,9 +13,7 @@ import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
 import {changeTypeAuth} from "src/shared/slice/user-slice.ts";
 
 const AuthWidget = () => {
-  const [isRegister, setIsRegister] = useState(true);
   const dispatch = useAppDispatch()
-  const onAuthSwitch = () => setIsRegister((prev) => !prev);
   const {userSlice} = useAppSelector(state => state)
   const navigate = useNavigate();
 

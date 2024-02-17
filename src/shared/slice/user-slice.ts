@@ -28,12 +28,6 @@ interface IInitialState {
     role: 'customer' | 'executor'
 }
 
-type UserRole = 'customer' | 'executor'
-interface IAction <T> {
-    type: '',
-    payload: T
-}
-
 const initialState:IInitialState = {
     isLoading: false,
     isError: false,
@@ -52,7 +46,7 @@ const UserSlice = createSlice({
         changeTypeAuth (state, action) {
             state.typeAuth = action.payload
         },
-        changeRole (state, action:IAction<UserRole>) {
+        changeRole (state, action) {
             state.role = action.payload
         }
     },
@@ -65,7 +59,7 @@ const UserSlice = createSlice({
                 state.isLoading = false
                 console.log(action.payload)
             })
-            .addCase(postUserAuth.rejected, (state, action) => {
+            .addCase(postUserAuth.rejected, (state) => {
                 state.isLoading = false
                 state.isError = true
             });

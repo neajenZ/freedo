@@ -1,5 +1,4 @@
 import styles from './auth-module-card.module.scss'
-import {changeTypeAuth} from "src/shared/slice/user-slice.ts";
 import {useNavigate} from "react-router-dom";
 
 

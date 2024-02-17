@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { Button, Input } from "src/shared/ui";
 import { RegisterRequest } from "../../api/auth-api.types";
 import { useRegisterMutation } from "../../api/auth.api";
 import { RegisterForm } from "../model/register-form.types";
@@ -8,10 +7,8 @@ import styles from "./register.module.scss";
 
 const Register = () => {
   const {
-    register,
     handleSubmit,
     reset,
-    formState: { errors },
   } = useForm<RegisterForm>({ resolver });
   const [handleRegister] = useRegisterMutation();
 

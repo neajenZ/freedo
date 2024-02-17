@@ -1,8 +1,6 @@
-import {Card} from "src/shared/ui";
 import { Publication } from "../../api/publication-api.types";
 import styles from "./publication-item.module.scss";
 import FavoritesIcon from "src/shared/ui/icons/FavoritesIcon.tsx";
-import {useEffect} from "react";
 
 type PublicationItemProps = {
   publication: Publication;

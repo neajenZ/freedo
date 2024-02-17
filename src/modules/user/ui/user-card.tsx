@@ -4,7 +4,6 @@ import {LanguageList, LangView} from "../../../components/language-list";
 import {ContactList} from "src/components/contacts-list";
 import {PaymentList} from "src/components/payment-list";
 import avatar from './avatar.png'
-import {useEffect, useRef} from "react";
 
 
 const UserCard = () => {

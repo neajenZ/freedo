@@ -1,5 +1,4 @@
-import AppRouter from "./providers/router/ui/app.router";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Layout from "src/app/layout/layout.tsx";
 import {MainPage} from "src/pages/main";
 import {NotFoundPage} from "src/pages/not-found-page";
