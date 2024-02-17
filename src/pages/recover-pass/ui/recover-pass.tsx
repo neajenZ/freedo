@@ -1,5 +1,4 @@
 import {Card, Grid} from "src/shared/ui";
-import {AuthImage} from "src/shared/assets";
 import {useNavigate} from "react-router-dom";
 import styles from './recover-pass.module.scss'
 const RecoverPassPage = () => {
