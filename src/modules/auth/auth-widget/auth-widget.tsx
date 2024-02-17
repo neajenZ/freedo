@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import {
   Card,
@@ -12,70 +11,68 @@ import styles from "./auth-widget.module.scss";
 import {SocialBtn} from "src/modules/auth/social-btn/social-btn.tsx";
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
 import {changeTypeAuth} from "src/shared/slice/user-slice.ts";
+import {useTranslation} from "react-i18next";
+import {PoliticyText} from "src/shared/ui/politicy-text/politicy-text.tsx";
 
 const AuthWidget = () => {
-  // const [isRegister, setIsRegister] = useState(true);
+  const {t} = useTranslation()
   const dispatch = useAppDispatch()
-  // const onAuthSwitch = () => setIsRegister((prev) => !prev);
   const {userSlice} = useAppSelector(state => state)
   const navigate = useNavigate();
 
-  if (userSlice.typeAuth === 'login') {
-    return (
-        <Card className={styles.auth}>
-          <div className={styles.wrapper}>
-            <div className={styles.imgWrapper}>
-            </div>
-            <Grid
-                item
-                xs={6}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-            >
-              <div className={styles.auth_header}>
-                <div className={styles.headerTop}>
-                  <h4 className={`${styles.titleModule} title`}>
-                    Войти в аккаунт
-                  </h4>
-                  <span className={styles.switch_link} onClick={() => navigate("/")}>
-              На главную
-              </span>
-                </div>
-                <div className={styles.headerBottom}>
-                  <p className="sub_title">
-                    Еще нет аккаунта?
-                  </p>
-                  <button className={styles.switch_link} onClick={() => dispatch(changeTypeAuth('register'))}>
-                  Зарегистрироваться
-                  </button>
-                </div>
-
-              </div>
-
-              <Login />
-              <div className={styles.socialWrapper}>
-                <SocialBtn
-                    name={'Facebook'}
-                    icon={<FacebookIcon />}
-                />
-                <SocialBtn
-                    name={'Google'}
-                    icon={<GoogleIcon />}
-                />
-              </div>
-
-              <p className="info">
-                При регистрации и входе вы соглашаетесь с <a href="#">условиями использования
-                Freedo</a> и <a href="#">политикой обработки данных</a>.
-              </p>
-            </Grid>
-          </div>
-        </Card>
-    );
-  }
+  // if (userSlice.typeAuth === 'login') {
+  //   return (
+  //       <Card className={styles.auth}>
+  //         <div className={styles.wrapper}>
+  //           <div className={styles.imgWrapper}>
+  //           </div>
+  //           <Grid
+  //               item
+  //               xs={6}
+  //               sx={{
+  //                 display: "flex",
+  //                 flexDirection: "column",
+  //                 justifyContent: "space-between",
+  //               }}
+  //           >
+  //             <div className={styles.auth_header}>
+  //               <div className={styles.headerTop}>
+  //                 <h4 className={`${styles.titleModule} title`}>
+  //                   {t('loginBtn')}
+  //                 </h4>
+  //                 <span className={styles.switch_link} onClick={() => navigate("/")}>
+  //             На главную
+  //             </span>
+  //               </div>
+  //               <div className={styles.headerBottom}>
+  //                 <p className="sub_title">
+  //                   {t('authPage.signUpTitle')}
+  //                 </p>
+  //                 <button className={styles.switch_link} onClick={() => dispatch(changeTypeAuth('register'))}>
+  //                   {t('regBtn')}
+  //                 </button>
+  //               </div>
+  //
+  //             </div>
+  //
+  //             <Login />
+  //             <div className={styles.socialWrapper}>
+  //               <SocialBtn
+  //                   name={'Facebook'}
+  //                   icon={<FacebookIcon />}
+  //               />
+  //               <SocialBtn
+  //                   name={'Google'}
+  //                   icon={<GoogleIcon />}
+  //               />
+  //             </div>
+  //
+  //             <PoliticyText />
+  //           </Grid>
+  //         </div>
+  //       </Card>
+  //   );
+  // }
 
   return (
     <div className={styles.auth}>
@@ -94,7 +91,9 @@ const AuthWidget = () => {
           <div className={styles.auth_header}>
             <div className={styles.headerTop}>
               <h4 className={`${styles.titleModule} title`}>
-                Создай своей аккаунт
+                {
+                  userSlice.typeAuth === 'login' ? t('loginBtn') : t('regBtn')
+                }
               </h4>
               <span className={styles.switch_link} onClick={() => navigate("/")}>
               На главную
@@ -102,16 +101,22 @@ const AuthWidget = () => {
             </div>
             <div className={styles.headerBottom}>
               <p className="sub_title">
-                Уже есть аккаунт?
+                {
+                  userSlice.typeAuth === 'login' ? t('authPage.signUpTitle') : t('authPage.signInTitle')
+                }
               </p>
-              <button className={styles.switch_link} onClick={() => dispatch(changeTypeAuth('login'))}>
-                Войти
-              </button>
+                {
+                  userSlice.typeAuth === 'login' ?
+                      <button className={styles.switch_link} onClick={() => dispatch(changeTypeAuth('register'))}>{t('regBtn')}</button> :
+                      <button className={styles.switch_link} onClick={() => dispatch(changeTypeAuth('login'))}>{t('loginBtn')}</button>
+                }
             </div>
 
           </div>
+          {
+            userSlice.typeAuth === 'login' ? <Login /> : <Register />
+          }
 
-          <Register />
           <div className={styles.socialWrapper}>
             <SocialBtn
               name={'Facebook'}
@@ -122,10 +127,7 @@ const AuthWidget = () => {
                 icon={<GoogleIcon />}
             />
           </div>
-          <p className="info">
-            При регистрации и входе вы соглашаетесь с <a href="#">условиями использования
-            Freedo</a> и <a href="#">политикой обработки данных</a>.
-          </p>
+          <PoliticyText />
         </Grid>
       </div>
     </div>

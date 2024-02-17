@@ -1,5 +1,6 @@
 import styles from './social-btn.module.scss'
 import {ReactNode} from "react";
+import {useTranslation} from "react-i18next";
 
 interface ISocialBtn {
     name: string,
@@ -8,10 +9,11 @@ interface ISocialBtn {
 }
 
 export const SocialBtn = ({name, icon, onclick}:ISocialBtn) => {
+    const {t} = useTranslation()
     return (
         <button onClick={onclick} className={styles.body}>
             {icon}
-            Продолжить с {name}
+            {t('continueWith')} {name}
         </button>
     )
 }

@@ -3,14 +3,15 @@ import {RatingLine} from "src/modules/user-info/user-reviews/rating-line/rating-
 import CommentListItem from "src/components/comment/ui/comment-list-item/comment-list-item.tsx";
 import {SendCommentWidjet} from "src/components/send-comment/ui/send-comment.tsx";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 export const UserReviews = () => {
 
     const [reviewWidjet, setReviewWidjet] = useState(false)
-
+    const {t} = useTranslation()
     return (
         <div className={styles.body}>
-            <h4 className={`${styles.titleSection} title-module`}>Отзывы о пользователе</h4>
+            <h4 className={`${styles.titleSection} title-module`}>{t('aboutUserTitle')}</h4>
             <div className={styles.headWrapper}>
                 <div className={styles.generalRating}>
                     <div className={styles.generalRatingWrapper}>
@@ -27,16 +28,16 @@ export const UserReviews = () => {
                     <p>Основано на мнении 82 людей</p>
 
                     <div className={styles.ratingLineWrapper}>
-                        <RatingLine title={'5 звёзд'} count={88} />
-                        <RatingLine title={'4 звезды'} count={212} />
-                        <RatingLine title={'3 звезды'} count={66} />
-                        <RatingLine title={'2 звезды'} count={55} />
-                        <RatingLine title={'1 звезда'} count={21} />
+                        <RatingLine title={t('countStars.five')} count={88} />
+                        <RatingLine title={t('countStars.other', {count: 4})} count={212} />
+                        <RatingLine title={t('countStars.other', {count: 3})} count={66} />
+                        <RatingLine title={t('countStars.other', {count: 2})} count={55} />
+                        <RatingLine title={t('countStars.one')} count={21} />
                     </div>
                 </div>
                 <div className={styles.sendReviewBody}>
-                    <p>Рейтинг — это среднее арифметическое оценок ипользователей.</p>
-                    <button onClick={() => setReviewWidjet(!reviewWidjet)}>Оставить отзыв</button>
+                    <p>{t('ratingDescText')}</p>
+                    <button onClick={() => setReviewWidjet(!reviewWidjet)}>{t('sendReview')}</button>
                 </div>
             </div>
             {

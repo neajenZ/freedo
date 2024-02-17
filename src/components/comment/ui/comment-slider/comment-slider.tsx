@@ -5,6 +5,7 @@ import CommentListItem from "../comment-list-item/comment-list-item";
 import { TComment } from "../../model/types/comment.types";
 import 'swiper/css'
 import {ArrowRightIcon} from "src/shared/ui/icons/ArrowRightIcon.tsx";
+import {useTranslation} from "react-i18next";
 
 type CommentSliderProps = {
   comments: TComment[];
@@ -12,12 +13,12 @@ type CommentSliderProps = {
 
 const CommentSlider = (props: CommentSliderProps) => {
   const { comments } = props;
-
+    const {t} = useTranslation()
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <div className={styles.say}>Вот что говорят люди</div>
-        <div className={styles.seeAll}>See all reviews</div>
+        <div className={styles.say}>{t('reviewsSectionTitle')}</div>
+        <div className={styles.seeAll}>{t('allReviewsText')}</div>
       </div>
       <div className={styles.swiperCont}>
         <Swiper

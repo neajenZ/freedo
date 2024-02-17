@@ -1,8 +1,10 @@
 import {Card, Grid} from "src/shared/ui";
 import {useNavigate} from "react-router-dom";
 import styles from './recover-pass.module.scss'
+import {useTranslation} from "react-i18next";
 const RecoverPassPage = () => {
     const navigate = useNavigate()
+    const {t} = useTranslation()
     return (
         <div className={'container'}>
             <div className={styles.contWrapper}>
@@ -21,7 +23,7 @@ const RecoverPassPage = () => {
                             <div className={styles.auth_header}>
                                 <div className={styles.headerTop}>
                                     <h4 className={`${styles.titleModule} title`}>
-                                        Восстановление пароля
+                                        {t('forgotPasswordTitle')}
                                     </h4>
                                     <span className={styles.switch_link} onClick={() => navigate("/")}>
                                         На главную
@@ -29,13 +31,13 @@ const RecoverPassPage = () => {
                                 </div>
                                 <div className={styles.headerBottom}>
                                     <p className="sub_title">
-                                        Введите адрес почты, на неё прийдет код
+                                        {t('enterEmailForgotPass')}
                                     </p>
                                 </div>
                             </div>
                             <div className={styles.form}>
-                                <input type={'text'} placeholder={'Почта'}/>
-                                <button>Сбросить текущий пароль</button>
+                                <input type={'text'} placeholder={t('mail')}/>
+                                <button>{t('recoverPass')}</button>
                             </div>
                         </Grid>
                     </div>

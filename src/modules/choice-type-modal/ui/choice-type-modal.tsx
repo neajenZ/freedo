@@ -3,10 +3,14 @@ import GoogleIcon from "src/shared/ui/icons/GoogleIcon.tsx";
 import FacebookIcon from "src/shared/ui/icons/FacebookIcon.tsx";
 import {useAppDispatch} from "src/shared/hooks/reduxHooks.ts";
 import {changeTypeAuth} from "src/shared/slice/user-slice.ts";
+import {Trans, useTranslation} from "react-i18next";
+import {SocialBtn} from "src/modules/auth/social-btn/social-btn.tsx";
+import {PoliticyText} from "src/shared/ui/politicy-text/politicy-text.tsx";
+
 
 export const ChoiceTypeModal = () => {
     const dispatch = useAppDispatch()
-
+    const {t} = useTranslation()
     return (
         <div className={styles.body}>
             <div className={styles.wrapper}>
@@ -17,11 +21,11 @@ export const ChoiceTypeModal = () => {
                     <div className={styles.header}>
                         <h3>Создай свой аккаунт</h3>
                         <div className={styles.typeAuthWrapper}>
-                            <p>Уже есть аккаунт?</p>
+                            <p>{t('authPage.signInTitle')}</p>
                             <button
                                 onClick={() => dispatch(changeTypeAuth('login'))}
                             >
-                                Войти
+                                {t('loginBtn')}
                             </button>
                         </div>
                     </div>
@@ -30,22 +34,19 @@ export const ChoiceTypeModal = () => {
                             onClick={() => dispatch(changeTypeAuth('register'))}
                             className={styles.fullWidth}
                         >
-                            Продолжить с Mail
+                            {t('continueWith')} Mail
                         </button>
-                        <button>
-                            <GoogleIcon />
-                            Продолжить с Google
-                        </button>
-                        <button>
-                            <FacebookIcon />
-                            Продолжить с Facebook
-                        </button>
+                        <SocialBtn
+                            name={'Facebook'}
+                            icon={<FacebookIcon />}
+                        />
+                        <SocialBtn
+                            name={'Google'}
+                            icon={<GoogleIcon />}
+                        />
                     </div>
 
-                    <p className={styles.politicyText}>
-                        При регистрации и входе вы соглашаетесь с <a href="#">условиями использования</a> Freedo и <a
-                        href="#">политикой обработки</a> данных.
-                    </p>
+                    <PoliticyText />
                 </div>
             </div>
         </div>

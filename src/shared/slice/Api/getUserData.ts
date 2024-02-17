@@ -1,20 +1,14 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
-import Cookies from "js-cookie";
 
 
-
-interface ICategory {
-    name: string
-}
-
-export const postSubcategories = createAsyncThunk<any, ICategory>(
-    '',
+export const getUserData = createAsyncThunk<any, any>(
+    'get/userData',
     async (data, {rejectWithValue}) => {
         try {
-            const response = await axiosInstance.get(`/category/${data}`, {
+            const response = await axiosInstance.post('/users/info', {
                 headers: {
-                    'Authorization': `Bearer ${Cookies.get('accessToken')}`
+                    'Authorization': `Bearer ${data}`
                 }
             })
 

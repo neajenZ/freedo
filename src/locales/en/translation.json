@@ -1,0 +1,47 @@
+{
+  "translation": {
+    "customerNavigate": {
+      "languageBtn": "Language",
+      "salesBtn": "Sales & Marketing",
+      "searchBtn": "Search",
+      "devBtn": "Development & IT",
+      "allBtn": "All services"
+    },
+    "authPage": {
+      "signInTitle": "Already have an account?",
+      "signUpTitle": "Don't have an account?"
+    },
+    "loginBtn": "Sign In",
+    "regBtn": "Sign Up",
+    "inputSearch": "Enter text for search",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "mail": "Email",
+    "password": "Password",
+    "confirmPass": "Confirm password",
+    "continueWith": "Continue with",
+    "orText": "Or",
+    "savePassText": "Remember password",
+    "recoverPass": "Reset password",
+    "selectedText": "Selected",
+    "politicyText": "By registering and logging in you agree to <0>Freedo terms of use</0>, and <1>data processing policies</1>",
+    "forgotPasswordTitle": "Forgot your password?",
+    "enterEmailForgotPass": "Enter you email to receive a verification code",
+    "countStars.one": "1 star",
+    "countStars.other": "{{count}} star",
+    "countStars.five": "5 star",
+    "ratingDescText": "The rating is the arithmetic average of user ratings.",
+    "profileDescTitle": "Profile description",
+    "adsUserTitle": "User ads",
+    "aboutUserTitle": "User reviews",
+    "sendReview": "Write review",
+    "watchContactsText": "Want to see contacts?",
+    "countYear.one": "1 year on site",
+    "countYear.other": "{{count}} years on site",
+    "reviewsSectionTitle": "That's what people say",
+    "allReviewsText": "See all reviews",
+    "aboutThisUser": "About this artist",
+    "notFoundText": "Not found page",
+    "mainPageText": "To main page"
+  }
+}

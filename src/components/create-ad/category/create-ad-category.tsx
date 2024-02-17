@@ -19,7 +19,10 @@ export const CreateAdCategory = () => {
                 userSlice.categories.map(i => (
                     <div
                         className={styles.item}
-                        onClick={() => dispatch(postSubcategories)}
+                        onClick={() => {
+                            console.log('abra')
+                            dispatch(postSubcategories(i.id))
+                        }}
                     >
                         {i.name}
                     </div>

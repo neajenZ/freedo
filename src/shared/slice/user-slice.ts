@@ -1,10 +1,11 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
-import {ICreatedAdData, IUserAuth} from "src/app/types/user.ts";
+import {ICreatedAdData, IUserAuth, IUserData} from "src/app/types/user.ts";
 import Cookies from "js-cookie";
 import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
 import {ICategory} from "src/app/types/categories.ts";
+import {getUserData} from "src/shared/slice/Api/getUserData.ts";
 
 export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     `get-info/user`,
@@ -27,6 +28,7 @@ export const postUserAuth = createAsyncThunk<any, IUserAuth>(
 interface IInitialState {
     isLoading: boolean,
     isError: boolean,
+    userData: IUserData,
     isAuth: boolean,
     isRedirect: boolean,
     isRecoverPass: boolean,
@@ -59,6 +61,14 @@ const initialState:IInitialState = {
     isAuth: false,
     isRedirect: false,
     isRecoverPass: false,
+    userData: {
+        id: '',
+        first_name: '',
+        last_name: '',
+        email: '',
+        date_of_registration: '',
+        photo_url: ''
+    },
     typeAuth: "initial",
     role: 'customer',
     categories: [
@@ -117,8 +127,21 @@ const UserSlice = createSlice({
                 state.isRedirect = true
                 Cookies.set('accessToken', action.payload.access_token)
                 Cookies.set('refreshToken', action.payload.refresh_token)
+
             })
             .addCase(postUserAuth.rejected, (state) => {
+                state.isLoading = false
+                state.isError = true
+            });
+        builder
+            .addCase(getUserData.pending, state => {
+                state.isLoading = true
+            })
+            .addCase(getUserData.fulfilled, (state, action:IAction<IUserData>) => {
+                state.isLoading = false
+                state.userData = action.payload
+            })
+            .addCase(getUserData.rejected, (state) => {
                 state.isLoading = false
                 state.isError = true
             });

@@ -4,8 +4,11 @@ import Price from "src/shared/ui/price/price.tsx";
 import FavoritesIcon from "src/shared/ui/icons/FavoritesIcon.tsx";
 import UserWorkExperience from "../../user-work-experience/ui/user-work-experience.tsx";
 import {UserReviews} from "src/modules/user-info/user-reviews/ui/user-reviews.tsx";
+import {useTranslation} from "react-i18next";
 
 export const AdInfo = () => {
+    const {t} = useTranslation()
+
     return (
         <div className={styles.body}>
             <div className={styles.wrapper}>
@@ -22,7 +25,7 @@ export const AdInfo = () => {
                 </div>
                 <UserWorkExperience />
                 <div className={styles.aboutUser}>
-                    <h4>Об этом исполнителе</h4>
+                    <h4>{t('aboutThisUser')}</h4>
                     <p>
                         Hi There,
                         Welcome to my minimalist business logo corporate brand style guides book and branding kit gig.

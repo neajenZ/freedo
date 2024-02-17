@@ -6,14 +6,15 @@ import "./app/styles/index.scss";
 import store from "./shared/store/store";
 import {BrowserRouter} from "react-router-dom";
 
+import './i18n'
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-      <BrowserRouter>
-          <Provider store={store}>
-              <App />
-          </Provider>
-      </BrowserRouter>
-
+          <BrowserRouter>
+              <Provider store={store}>
+                  <App />
+              </Provider>
+          </BrowserRouter>
 
   </React.StrictMode>
 );

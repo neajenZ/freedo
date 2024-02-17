@@ -1,0 +1,47 @@
+{
+  "translation": {
+    "customerNavigate": {
+      "languageBtn": "Язык",
+      "salesBtn": "Продажи & Маркетинг",
+      "searchBtn": "Поиск",
+      "devBtn": "Разработка & IT",
+      "allBtn": "Все услуги"
+    },
+    "authPage": {
+      "signInTitle": "Уже есть аккаунт?",
+      "signUpTitle": "Еще нет аккаунта?"
+    },
+    "loginBtn": "Войти",
+    "regBtn": "Регистрация",
+    "inputSearch": "Введите текст для поиска",
+    "firstname": "Имя",
+    "lastname": "Фамилия",
+    "mail": "Почта",
+    "password": "Пароль",
+    "confirmPass": "Подтвердите пароль",
+    "continueWith": "Продолжить с",
+    "orText": "Или",
+    "savePassText": "Запомнить пароль",
+    "recoverPass": "Восстановить пароль",
+    "selectedText": "Выбраны",
+    "politicyText": "При регистрации и входе вы соглашаетесь с <0>условиями использования</0> Freedo и <1>политикой обработки</1> данных.",
+    "forgotPasswordTitle": "Восстановление пароля",
+    "enterEmailForgotPass": "Введите адрес почты, на неё придёт код",
+    "countStars.one": "1 звезда",
+    "countStars.other": "{{count}} звезды",
+    "countStars.five": "5 звёзд",
+    "ratingDescText": "Рейтинг — это среднее арифметическое оценок ипользователей.",
+    "profileDescTitle": "Описание профиля",
+    "adsUserTitle": "Объявления пользователя",
+    "aboutUserTitle": "Отзывы о пользователе",
+    "sendReview": "Оставить отзыв",
+    "watchContactsText": "Хотите увидеть контакты?",
+    "countYear.one": "1 год на площадке",
+    "countYear.other": "{{count}} года на площадке",
+    "reviewsSectionTitle": "Вот что говорят люди",
+    "allReviewsText": "Посмотреть все отзывы",
+    "aboutThisUser": "Об этом исполнителе",
+    "notFoundText": "Страница не найдена",
+    "mainPageText": "На главную"
+  }
+}

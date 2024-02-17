@@ -6,12 +6,13 @@ import {PaymentList} from "src/components/payment-list";
 import avatar from './avatar.png'
 import { useState} from "react";
 import ReCaptcha from 'react-google-recaptcha'
+import {useTranslation} from "react-i18next";
 
 
 const UserCard = () => {
   const { data} = useUserQuery();
   const [isCaptcha, setCaptcha] = useState<string | null>()
-
+    const {t} = useTranslation()
   if (!data) return null;
 
   return (
@@ -24,7 +25,7 @@ const UserCard = () => {
                     <span className={styles.views}>{data.views}</span>
                 </div>
                 <div onClick={() => console.log(isCaptcha)} className={styles.info__bottom}>
-                    <div className={styles.date}>1 год на площадке</div>
+                    <div className={styles.date}>{t('countYear.one')}</div>
                     <LanguageList languages={data.languages} variant={LangView.Popup}/>
                 </div>
             </div>
@@ -33,7 +34,7 @@ const UserCard = () => {
             {
                 !isCaptcha ?
                     <div className={styles.captchaWrapper}>
-                        <h4>Хотите увидеть контакты?</h4>
+                        <h4>{t('watchContactsText')}</h4>
                         <ReCaptcha
                             onChange={(cap) => setCaptcha(cap)}
                             sitekey={`6LcWNF4pAAAAANUWFGsLFyyNnxSCtyIjxCaqkl7h`}

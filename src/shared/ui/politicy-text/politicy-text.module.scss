@@ -1,0 +1,13 @@
+@import "src/app/styles/variavles";
+@import "src/app/styles/mixins";
+
+.politicyText {
+  @include text($text-small, 120%, 400, $grey);
+  a {
+    color: $purple-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

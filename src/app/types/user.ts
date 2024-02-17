@@ -3,6 +3,16 @@ export interface IUserAuth {
     password: string
 }
 
+export interface IUserData {
+    first_name: string,
+    last_name: string,
+    photo_url: string,
+    email: string,
+    date_of_registration: string,
+    id: string,
+
+}
+
 export interface ICreatedAdData {
     type: 'executor' | 'customer',
     status: string | null,
