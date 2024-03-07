@@ -5,6 +5,8 @@ import { RegisterForm } from "../model/register-form.types";
 import resolver from "../model/resolver";
 import styles from "./register.module.scss";
 import {useTranslation} from "react-i18next";
+import api from "src/app/api/api.ts";
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
   const {
@@ -13,8 +15,9 @@ const Register = () => {
     reset,
     // formState: { errors },
   } = useForm<RegisterForm>({ resolver });
-  const [handleRegister] = useRegisterMutation();
   const {t} = useTranslation()
+    const navigate = useNavigate()
+
   const onSubmit = async (data: RegisterForm) => {
     const preparedData: RegisterRequest = {
       email: data.email,
@@ -22,7 +25,10 @@ const Register = () => {
       last_name: data.last_name,
       password: data.password,
     };
-    await handleRegister(preparedData);
+    await api.user.registration(preparedData)
+        .then(() => {
+            navigate('/')
+        })
     reset();
   };
 

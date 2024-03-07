@@ -7,8 +7,43 @@ import {ProfilePage} from "src/pages/profile";
 import {AuthPage} from "src/pages/auth";
 import {AdPage} from "src/pages/ad";
 import {CreateAdPage} from "src/pages/create-ad";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
+import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
+import api from "src/app/api/api.ts";
+import {setUserData} from "src/shared/slice/user-slice.ts";
 
 const App = () => {
+    const {userSlice} = useAppSelector(state => state)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        const getUserData = () => {
+            if (Cookies.get('accessToken')) {
+                api.user.data()
+                    .then((res) => {
+                        dispatch(setUserData(res.data))
+                    })
+                    .catch((e) => {
+                        if (e.response.status === 401) {
+                            api.user.updateToken()
+                                .then((res) => {
+                                    return getUserData()
+                                })
+                                .catch((e) => {
+                                    console.log('error update token', e)
+                                })
+                        }
+                    })
+            }
+        }
+
+        getUserData()
+
+    }, []);
+
+    // useEffect(() => {
+    //     if (userSlice.isUpdateToken) dispatch(getUpdatedToken({refresh_token: Cookies.get('refreshToken')}))
+    // }, [userSlice.isUpdateToken]);
 
   return (
       <Routes>

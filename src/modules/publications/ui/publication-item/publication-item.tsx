@@ -4,16 +4,25 @@ import FavoritesIcon from "src/shared/ui/icons/FavoritesIcon.tsx";
 
 type PublicationItemProps = {
   publication: Publication;
-  image?: string
 };
 
 // Доделать слайдер изображений как будет готов бек
 
 
-const PublicationItem = ({ publication, image }: PublicationItemProps) => {
-  const { title, price, categories, description } = publication;
+const PublicationItem = ({ publication }: PublicationItemProps) => {
+  const {
+      title,
+      description,
+      id,
+      date_of_registration,
+      category_id,
+      author_id,
+      views,
+      photoUrls,
+      language_id
+  } = publication;
 
-  if (!image) {
+  if (photoUrls.length === 0) {
       return (
       <article className={styles.publication}>
           <div className={styles.wrapper}>
@@ -31,12 +40,12 @@ const PublicationItem = ({ publication, image }: PublicationItemProps) => {
                       <div className={styles.header__avatar}></div>
                       <div className={styles.header__text}>
                           <p>{title}</p>
-                          <p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?
-                              <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :
-                              <span key={`${cat}${index}`}>{cat}</span>))}</p>
+                          {/*<p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?*/}
+                          {/*    <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :*/}
+                          {/*    <span key={`${cat}${index}`}>{cat}</span>))}</p>*/}
                       </div>
                       <div className={styles.header__panel}>
-                          <div className={styles.price}><span>{price} $ +</span></div>
+                          <div className={styles.price}><span>100 $ +</span></div>
                           <button className={styles.favorites}><FavoritesIcon className={styles.heart}/></button>
                       </div>
                   </header>
@@ -63,7 +72,7 @@ const PublicationItem = ({ publication, image }: PublicationItemProps) => {
           <div className={styles.wrapper}>
               <div
                   style={{
-                      background: `url('${image}') center no-repeat`,
+                      background: `url('${photoUrls[0]}') center no-repeat`,
                   }}
                   className={styles.imageItem}
               >
@@ -79,12 +88,12 @@ const PublicationItem = ({ publication, image }: PublicationItemProps) => {
                       <div className={styles.header__avatar}></div>
                       <div className={styles.header__text}>
                           <p>{title}</p>
-                          <p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?
-                              <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :
-                              <span key={`${cat}${index}`}>{cat}</span>))}</p>
+                          {/*<p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?*/}
+                          {/*    <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :*/}
+                          {/*    <span key={`${cat}${index}`}>{cat}</span>))}</p>*/}
                       </div>
                       <div className={styles.header__panel}>
-                          <div className={styles.price}><span>{price} $ +</span></div>
+                          <div className={styles.price}><span>100 $ +</span></div>
                           <button className={styles.favorites}><FavoritesIcon className={styles.heart}/></button>
                       </div>
                   </header>

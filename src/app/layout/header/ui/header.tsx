@@ -110,11 +110,7 @@ const Header = () => {
                   </div>
                   {
                       userWidjet.isComponentVisible &&
-                      <UserDropdown
-                          id={'harygoter'}
-                          name={'Alexina'}
-                          lastname={'Miro'}
-                      />
+                      <UserDropdown setVisible={() => userWidjet.setIsComponentVisible(false)} />
                   }
               </div>
           </div>

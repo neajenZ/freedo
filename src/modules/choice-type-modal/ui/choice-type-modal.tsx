@@ -3,7 +3,7 @@ import GoogleIcon from "src/shared/ui/icons/GoogleIcon.tsx";
 import FacebookIcon from "src/shared/ui/icons/FacebookIcon.tsx";
 import {useAppDispatch} from "src/shared/hooks/reduxHooks.ts";
 import {changeTypeAuth} from "src/shared/slice/user-slice.ts";
-import {Trans, useTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
 import {SocialBtn} from "src/modules/auth/social-btn/social-btn.tsx";
 import {PoliticyText} from "src/shared/ui/politicy-text/politicy-text.tsx";
 

@@ -1,10 +1,12 @@
 import styles from "src/modules/publications/ui/publication-list/publication-list.module.scss";
 import PublicationItem from "src/modules/publications/ui/publication-item/publication-item.tsx";
-import {usePublicationsQuery} from "src/modules/publications/api/publication.api.ts";
 import {DropdownArrow} from "src/shared/ui/icons/DropdownArrow.tsx";
+import {useAppSelector} from "src/shared/hooks/reduxHooks.ts";
+import {Publication} from "src/modules/publications/api/publication-api.types.ts";
 export const PublicationListCustomers = () => {
 
-    const { data: publications } = usePublicationsQuery();
+    const {userSlice} = useAppSelector(state => state)
+
     return (
         <div className={'container'}>
             <div className={styles.navWrapper}>
@@ -12,10 +14,10 @@ export const PublicationListCustomers = () => {
                 <div className={styles.dropdownBtn}>Выберите язык <DropdownArrow /></div>
             </div>
             <div className={styles.container}>
-                {publications?.map((publication, i) => (
+                {userSlice.publications?.map((publication: Publication) => (
                     <PublicationItem
                         publication={publication}
-                        key={`${publication.title}${i}`}
+                        key={publication.id}
                     />
                 ))}
             </div>

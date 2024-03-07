@@ -6,16 +6,14 @@ import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
 import {ICategory} from "src/app/types/categories.ts";
 import {getUserData} from "src/shared/slice/Api/getUserData.ts";
+import {getUpdatedToken} from "src/shared/slice/Api/getUpdatedToken.ts";
+import {getPublications} from "src/shared/slice/Api/getPublications.ts";
 
 export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     `get-info/user`,
     async (data, {rejectWithValue}) => {
         try {
-            const response = await axiosInstance.post('/auth/token', data, {
-                headers: {
-                    
-                }
-            })
+            const response = await axiosInstance.post('/auth/token', data)
             return response.data
         } catch (e) {
             return rejectWithValue(e)
@@ -31,10 +29,12 @@ interface IInitialState {
     userData: IUserData,
     isAuth: boolean,
     isRedirect: boolean,
+    isUpdateToken: boolean,
     isRecoverPass: boolean,
     typeAuth: 'register' | 'login' | 'initial',
     role: 'customer' | 'executor',
     categories: ICategory[],
+    publications: any[],
     subcategoriesList: {
         name: string,
         id: string,
@@ -60,6 +60,7 @@ const initialState:IInitialState = {
     isError: false,
     isAuth: false,
     isRedirect: false,
+    isUpdateToken: false,
     isRecoverPass: false,
     userData: {
         id: '',
@@ -74,6 +75,7 @@ const initialState:IInitialState = {
     categories: [
 
     ],
+    publications: [],
     subcategoriesList: {
         name: '',
         id: '',
@@ -100,6 +102,17 @@ const UserSlice = createSlice({
     name: 'user-slice',
     initialState,
     reducers: {
+        setUserData (state, action) {
+            console.log(action)
+            state.isAuth = true
+            state.userData = action.payload
+        },
+        setPublications (state, action) {
+            state.publications = [...action.payload]
+        },
+        setLogout (state) {
+            state.isAuth = false
+        },
         setRecoverPass (state) {
             state.isRecoverPass = true
         },
@@ -134,14 +147,18 @@ const UserSlice = createSlice({
                 state.isError = true
             });
         builder
-            .addCase(getUserData.pending, state => {
+            .addCase(getUserData.pending, (state, action) => {
                 state.isLoading = true
+                console.log('action', action)
+
             })
             .addCase(getUserData.fulfilled, (state, action:IAction<IUserData>) => {
                 state.isLoading = false
                 state.userData = action.payload
+                state.isAuth = true
             })
-            .addCase(getUserData.rejected, (state) => {
+            .addCase(getUserData.rejected, (state, action) => {
+                console.log(action)
                 state.isLoading = false
                 state.isError = true
             });
@@ -166,6 +183,29 @@ const UserSlice = createSlice({
                 state.isLoading = false
                 state.isError = true
             });
+        builder
+            .addCase(getUpdatedToken.pending, () => {
+            })
+            .addCase(getUpdatedToken.fulfilled, (state, action) => {
+                Cookies.set('accessToken', action.payload.access_token)
+                Cookies.set('refreshToken', action.payload.refresh_token)
+                state.isUpdateToken = false
+            })
+            .addCase(getUpdatedToken.rejected, (state) => {
+                state.isLoading = false
+                state.isError = true
+            });
+        builder
+            .addCase(getPublications.pending, () => {
+            })
+            .addCase(getPublications.fulfilled, (state, action) => {
+                state.publications = action.payload
+                state.isLoading = false
+            })
+            .addCase(getPublications.rejected, (state) => {
+                state.isLoading = false
+                state.isError = true
+            });
     }
 })
 
@@ -174,7 +214,10 @@ export const {
     changeTypeAuth,
     changeCreatedAdRole,
     changeRole,
-    createdAdStatus
+    createdAdStatus,
+    setUserData,
+    setPublications,
+    setLogout
 } = UserSlice.actions
 
 export default UserSlice.reducer

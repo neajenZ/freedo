@@ -1,11 +1,12 @@
 import styles from './create-ad-category.module.scss'
 import {useAppDispatch, useAppSelector} from "src/shared/hooks/reduxHooks.ts";
-import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {useEffect} from "react";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
 import Cookies from "js-cookie";
+import { ICategory } from 'src/app/types/categories';
 
 export const CreateAdCategory = () => {
+    // @ts-ignore
     const dispatch = useAppDispatch()
     const {userSlice} = useAppSelector(state => state)
     const token = Cookies.get('accessToken')
@@ -16,12 +17,10 @@ export const CreateAdCategory = () => {
     return (
         <div className={styles.wrapper}>
             {
-                userSlice.categories.map(i => (
+                userSlice.categories.map((i: ICategory) => (
                     <div
                         className={styles.item}
                         onClick={() => {
-                            console.log('abra')
-                            dispatch(postSubcategories(i.id))
                         }}
                     >
                         {i.name}
