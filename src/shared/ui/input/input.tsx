@@ -15,16 +15,17 @@ interface InputProps extends HTMLInputProps {
 
 const Input = (props: InputProps) => {
   const { className, error, ...otherProps } = props;
+  console.log(error)
   return (
-    <>
+    <div className={styles.wrapper}>
       <input
         className={classNames(styles.input, className, {
-          [styles.border_error]: error?.message,
+          [styles.border_error]: error,
         })}
         {...otherProps}
       />
-      {error && <span className="error">{error.message}</span>}
-    </>
+      {!error ? null : <span className="error">{error.message}</span>}
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Publication } from "../../api/publication-api.types";
 import styles from "./publication-item.module.scss";
 import FavoritesIcon from "src/shared/ui/icons/FavoritesIcon.tsx";
@@ -39,7 +40,11 @@ const PublicationItem = ({ publication }: PublicationItemProps) => {
                   <header className={styles.header}>
                       <div className={styles.header__avatar}></div>
                       <div className={styles.header__text}>
-                          <p>{title}</p>
+                          <Link 
+                            to={`/ad/${id}`}
+                          >
+                            <p>{title}</p>
+                          </Link>
                           {/*<p className={styles.subtitle}>{categories.map((cat, index) => (index !== categories.length - 1 ?*/}
                           {/*    <span key={`${cat}${index}`}>{cat.concat(', ')}</span> :*/}
                           {/*    <span key={`${cat}${index}`}>{cat}</span>))}</p>*/}

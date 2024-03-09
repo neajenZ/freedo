@@ -4,7 +4,7 @@ import {ICreatedAdData, IUserAuth, IUserData} from "src/app/types/user.ts";
 import Cookies from "js-cookie";
 import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
-import {ICategory} from "src/app/types/categories.ts";
+import {IRootCategory} from "src/app/types/categories.ts";
 import {getUserData} from "src/shared/slice/Api/getUserData.ts";
 import {getUpdatedToken} from "src/shared/slice/Api/getUpdatedToken.ts";
 import {getPublications} from "src/shared/slice/Api/getPublications.ts";
@@ -33,7 +33,7 @@ interface IInitialState {
     isRecoverPass: boolean,
     typeAuth: 'register' | 'login' | 'initial',
     role: 'customer' | 'executor',
-    categories: ICategory[],
+    categories: IRootCategory[],
     publications: any[],
     subcategoriesList: {
         name: string,

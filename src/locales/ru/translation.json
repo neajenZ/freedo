@@ -7,11 +7,15 @@
       "devBtn": "Разработка & IT",
       "allBtn": "Все услуги"
     },
+    "hello": "Здравствуйте",
     "authPage": {
       "signInTitle": "Уже есть аккаунт?",
       "signUpTitle": "Еще нет аккаунта?"
     },
+    "customer": "Заказчик",
+    "executor": "Исполнитель",
     "loginBtn": "Войти",
+    "quit": "Выйти",
     "regBtn": "Регистрация",
     "inputSearch": "Введите текст для поиска",
     "firstname": "Имя",
@@ -42,6 +46,7 @@
     "allReviewsText": "Посмотреть все отзывы",
     "aboutThisUser": "Об этом исполнителе",
     "notFoundText": "Страница не найдена",
-    "mainPageText": "На главную"
+    "mainPageText": "На главную",
+    "editProfile": "Редактировать профиль"
   }
 }

@@ -117,6 +117,14 @@ main {
   grid-gap: 7px;
 }
 
+.activeStar {
+  svg {
+    path {
+      fill: #FFD338;
+    }
+  }
+}
+
 // Контейнер для позиционирования
 
 .container {

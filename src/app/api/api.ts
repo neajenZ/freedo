@@ -1,6 +1,8 @@
 import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
 import Cookies from "js-cookie";
 import {RegisterRequest} from "src/modules/auth/api/auth-api.types.ts";
+import { IRootCategory } from "../types/categories";
+import { ICreateComment } from "../types/comments";
 
 const api = {
     user: {
@@ -27,6 +29,24 @@ const api = {
     publications: {
         get: (payload = 100) => {
             return axiosInstance.get(`/cards?offset=0&limit=${payload}`, {
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('accessToken')}`
+                }
+            })
+        }
+    },
+    categories: {
+        get: () => {
+            return axiosInstance.get<IRootCategory[]>(`/categories`, {
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('accessToken')}`
+                }
+            })
+        }
+    },
+    comments: {
+        create: () => {
+            return axiosInstance.post<ICreateComment>(`/comments`, {
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('accessToken')}`
                 }

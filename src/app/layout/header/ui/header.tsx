@@ -88,14 +88,14 @@ const Header = () => {
                                           onClick={() => dispatch(changeRole("customer"))}
                                           className={`${styles.roleBtn} ${userSlice.role === 'customer' && styles.active}`}
                                       >
-                                          Заказчик
+                                        {t('customer')}
                                       </button>
 
                                       <button
                                           onClick={() => dispatch(changeRole("executor"))}
                                           className={`${styles.roleBtn} ${userSlice.role === 'executor' && styles.active}`}
                                       >
-                                          Исполнитель
+                                          {t('executor')}
                                       </button>
 
                                       <IconButton

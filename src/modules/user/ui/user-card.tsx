@@ -7,12 +7,14 @@ import avatar from './avatar.png'
 import { useState} from "react";
 import ReCaptcha from 'react-google-recaptcha'
 import {useTranslation} from "react-i18next";
+import { useAppSelector } from "src/shared/hooks/reduxHooks";
 
 
 const UserCard = () => {
   const { data} = useUserQuery();
   const [isCaptcha, setCaptcha] = useState<string | null>()
     const {t} = useTranslation()
+    const {userSlice} = useAppSelector(state => state)
   if (!data) return null;
 
   return (
@@ -21,7 +23,7 @@ const UserCard = () => {
             <img className={styles.profile__avatar} src={avatar} alt="Profile Avatar"/>
             <div className={styles.info}>
                 <div className={styles.info__top}>
-                    <h3 className={styles.name}>{data.first_name} {data.last_name}</h3>
+                    <h3 className={styles.name}>{userSlice.userData.first_name} {userSlice.userData.last_name}</h3>
                     <span className={styles.views}>{data.views}</span>
                 </div>
                 <div onClick={() => console.log(isCaptcha)} className={styles.info__bottom}>

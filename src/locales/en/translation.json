@@ -7,13 +7,17 @@
       "devBtn": "Development & IT",
       "allBtn": "All services"
     },
+    "hello": "Hello",
     "authPage": {
       "signInTitle": "Already have an account?",
       "signUpTitle": "Don't have an account?"
     },
     "loginBtn": "Sign In",
+    "quit": "Logout",
     "regBtn": "Sign Up",
     "inputSearch": "Enter text for search",
+    "customer": "Customer",
+    "executor": "Executor",
     "firstname": "First name",
     "lastname": "Last name",
     "mail": "Email",
@@ -42,6 +46,7 @@
     "allReviewsText": "See all reviews",
     "aboutThisUser": "About this artist",
     "notFoundText": "Not found page",
-    "mainPageText": "To main page"
+    "mainPageText": "To main page",
+    "editProfile": "Edit profile"
   }
 }

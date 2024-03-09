@@ -3,13 +3,15 @@ import { authApi } from "src/modules/auth";
 import { publicationApi } from "src/modules/publications";
 import { userApi } from "src/modules/user";
 import UserSlice from "src/shared/slice/user-slice.ts";
+import CategoriesSlice from 'src/shared/slice/categories-slice.ts'
 
 const store = configureStore({
   reducer: {
     [userApi.reducerPath]: userApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [publicationApi.reducerPath]: publicationApi.reducer,
-    userSlice: UserSlice
+    userSlice: UserSlice,
+    categoriesSlice: CategoriesSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

@@ -52,7 +52,7 @@ const App = () => {
           <Route path={'/recover-pass'} element={<RecoverPassPage /> } />
           <Route path={'/profile'} element={<ProfilePage /> } />
           <Route path={'/auth'} element={<AuthPage /> } />
-          <Route path={'/ad'} element={<AdPage /> } />
+          <Route path={'/ad/:id'} element={<AdPage /> } />
             <Route path={'/create-ad'} element={<CreateAdPage /> } />
         </Route>
         <Route path={'*'} element={<NotFoundPage />} />

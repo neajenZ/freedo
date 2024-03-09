@@ -7,3 +7,11 @@
 .border_error {
   border: 1px solid var(--FB5858, #fb5858);
 }
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-gap: 6px;
+}
