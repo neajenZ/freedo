@@ -2,13 +2,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import styles from "./comment-slider.module.scss";
 import CommentListItem from "../comment-list-item/comment-list-item";
-import { TComment } from "../../model/types/comment.types";
 import 'swiper/css'
 import {ArrowRightIcon} from "src/shared/ui/icons/ArrowRightIcon.tsx";
 import {useTranslation} from "react-i18next";
+import {IComment} from "src/app/types/comments.ts";
 
 type CommentSliderProps = {
-  comments: TComment[];
+  comments?: IComment[];
 };
 
 const CommentSlider = (props: CommentSliderProps) => {
@@ -30,28 +30,29 @@ const CommentSlider = (props: CommentSliderProps) => {
           modules={[Navigation]}
           className={styles.mySwiper}
         >
-          {comments.map((item: TComment) => (
+          {comments?.map((item: IComment) => (
             <SwiperSlide key={item.id}>
               <CommentListItem
-                id={item.id}
-                avatar={item.avatar}
-                name={item.name}
-                date={item.date}
-                text={item.text}
-                language={item.language}
-                stars={item.stars}
+                commentData={item}
               />
             </SwiperSlide>
           ))}
 
         </Swiper>
-          <button className="swiper-button-next">
-              <ArrowRightIcon />
-          </button>
-          <div className="swiper-button-prev">
-              {/* перенести иконку из старого проекта arrowL-botSlider.svg */}
-              <p>{"<"}</p>
-          </div>
+          {
+              comments && comments.length > 1 ? (
+                  <>
+                      <button className="swiper-button-next">
+                          <ArrowRightIcon />
+                      </button>
+                      <div className="swiper-button-prev">
+                          {/* перенести иконку из старого проекта arrowL-botSlider.svg */}
+                          <p>{"<"}</p>
+                      </div>
+                  </>
+              ) : null
+          }
+
       </div>
     </div>
   );

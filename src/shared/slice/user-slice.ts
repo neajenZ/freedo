@@ -1,6 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {axiosInstance} from "src/shared/utils/axiosInstance.ts";
-import {ICreatedAdData, IUserAuth, IUserData} from "src/app/types/user.ts";
+import { IUserAuth, IUserData} from "src/app/types/user.ts";
 import Cookies from "js-cookie";
 import {postSubcategories} from "src/shared/slice/Api/postSubcategories.ts";
 import {getCategories} from "src/shared/slice/Api/getCategories.ts";
@@ -8,12 +7,15 @@ import {IRootCategory} from "src/app/types/categories.ts";
 import {getUserData} from "src/shared/slice/Api/getUserData.ts";
 import {getUpdatedToken} from "src/shared/slice/Api/getUpdatedToken.ts";
 import {getPublications} from "src/shared/slice/Api/getPublications.ts";
+import {IComment} from "src/app/types/comments.ts";
+import {IPublicationForm} from "src/app/types/publications.ts";
+import axios from "axios";
 
 export const postUserAuth = createAsyncThunk<any, IUserAuth>(
     `get-info/user`,
     async (data, {rejectWithValue}) => {
         try {
-            const response = await axiosInstance.post('/auth/token', data)
+            const response = await axios.post('https://api.freedo.pro/auth/token', data)
             return response.data
         } catch (e) {
             return rejectWithValue(e)
@@ -27,6 +29,7 @@ interface IInitialState {
     isLoading: boolean,
     isError: boolean,
     userData: IUserData,
+    comments: IComment[],
     isAuth: boolean,
     isRedirect: boolean,
     isUpdateToken: boolean,
@@ -40,11 +43,7 @@ interface IInitialState {
         id: string,
         subcategories: string[]
     },
-    createAdInfo: {
-        category: string,
-        subCategory: string,
-        data: ICreatedAdData
-    }
+    createAdInfo: IPublicationForm
 }
 
 type UserRole = 'customer' | 'executor'
@@ -67,9 +66,10 @@ const initialState:IInitialState = {
         first_name: '',
         last_name: '',
         email: '',
-        date_of_registration: '',
+        date_of_registration: [],
         photo_url: ''
     },
+    comments: [],
     typeAuth: "initial",
     role: 'customer',
     categories: [
@@ -83,7 +83,7 @@ const initialState:IInitialState = {
     },
     createAdInfo: {
         category: '',
-        subCategory: '',
+        subcategory: '',
         data: {
             type: 'executor',
             status: null,
@@ -107,8 +107,11 @@ const UserSlice = createSlice({
             state.isAuth = true
             state.userData = action.payload
         },
+        setUserComments (state, action) {
+            state.comments = action.payload
+        },
         setPublications (state, action) {
-            state.publications = [...action.payload]
+            state.publications = [...state.publications, ...action.payload]
         },
         setLogout (state) {
             state.isAuth = false
@@ -127,6 +130,9 @@ const UserSlice = createSlice({
         },
         createdAdStatus (state, action) {
             state.createAdInfo.data.status = action.payload
+        },
+        setPublicationForm (state, action: IAction<IPublicationForm>) {
+            state.createAdInfo = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -217,7 +223,9 @@ export const {
     createdAdStatus,
     setUserData,
     setPublications,
-    setLogout
+    setLogout,
+    setUserComments,
+    setPublicationForm
 } = UserSlice.actions
 
 export default UserSlice.reducer

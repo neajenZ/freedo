@@ -3,9 +3,7 @@ import styles from "./register.module.scss";
 import {useTranslation} from "react-i18next";
 import api from "src/app/api/api.ts";
 import {useNavigate} from "react-router-dom";
-import { useInput } from "src/shared/hooks/useInput";
 import { useState } from "react";
-import { Input } from "src/shared/ui";
 import { useForm } from "react-hook-form";
 import { RegisterForm } from "../model/register-form.types";
 

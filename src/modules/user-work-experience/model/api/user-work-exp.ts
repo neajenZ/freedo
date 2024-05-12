@@ -1,4 +1,4 @@
-export const fetchComments = () => {
+export const fetchComments = ()  => {
   return [
     {
       id: 1,

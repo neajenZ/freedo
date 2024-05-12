@@ -1,14 +1,17 @@
 import styles from './user-reviews.module.scss'
 import {RatingLine} from "src/modules/user-info/user-reviews/rating-line/rating-line.tsx";
-import CommentListItem from "src/components/comment/ui/comment-list-item/comment-list-item.tsx";
 import {SendCommentWidjet} from "src/components/send-comment/ui/send-comment.tsx";
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
+import {useAppSelector} from "src/shared/hooks/reduxHooks.ts";
+import CommentListItem from "src/components/comment/ui/comment-list-item/comment-list-item.tsx";
 
 export const UserReviews = () => {
 
     const [reviewWidjet, setReviewWidjet] = useState(false)
+    const {userSlice} = useAppSelector(state => state)
     const {t} = useTranslation()
+    console.log(userSlice)
     return (
         <div className={styles.body}>
             <h4 className={`${styles.titleSection} title-module`}>{t('aboutUserTitle')}</h4>
@@ -44,10 +47,11 @@ export const UserReviews = () => {
                 reviewWidjet && <SendCommentWidjet />
             }
             <section className={styles.reviewsWrapper}>
-                <CommentListItem id={2} avatar={''} name={'Alexey'} date={'Вчера'} text={'Текст коммента'} language={''} stars={3} />
-                <CommentListItem id={2} avatar={''} name={'Alexey'} date={'Вчера'} text={'Текст коммента'} language={''} stars={3} />
-                <CommentListItem id={2} avatar={''} name={'Alexey'} date={'Вчера'} text={'Текст коммента'} language={''} stars={3} />
-
+                {
+                    userSlice.comments?.map((i) => (
+                        <CommentListItem commentData={i} />
+                    ))
+                }
             </section>
         </div>
     )

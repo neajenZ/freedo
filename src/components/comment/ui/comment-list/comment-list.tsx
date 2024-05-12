@@ -13,13 +13,6 @@ const CommentList = (props: CommentListProps) => {
       {comments.map((item) => (
         <Comment
           key={item.id}
-          id={item.id}
-          avatar={item.avatar}
-          name={item.name}
-          date={item.date}
-          text={item.text}
-          language={item.language}
-          stars={item.stars}
         />
       ))}
     </div>

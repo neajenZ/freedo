@@ -1,7 +1,7 @@
 @import "src/app/styles/mixins";
 @import "src/app/styles/variavles";
 .container {
-  @include create-grid(repeat(2, 50%), 24px);
+  @include create-grid(repeat(2, 49%), 2%);
   margin: 0 auto 0 auto;
   width: 100%;
 }

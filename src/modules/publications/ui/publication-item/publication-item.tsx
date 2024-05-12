@@ -15,13 +15,11 @@ const PublicationItem = ({ publication }: PublicationItemProps) => {
       title,
       description,
       id,
-      date_of_registration,
-      category_id,
-      author_id,
-      views,
       photoUrls,
-      language_id
   } = publication;
+
+
+
 
   if (photoUrls.length === 0) {
       return (
@@ -40,7 +38,7 @@ const PublicationItem = ({ publication }: PublicationItemProps) => {
                   <header className={styles.header}>
                       <div className={styles.header__avatar}></div>
                       <div className={styles.header__text}>
-                          <Link 
+                          <Link
                             to={`/ad/${id}`}
                           >
                             <p>{title}</p>

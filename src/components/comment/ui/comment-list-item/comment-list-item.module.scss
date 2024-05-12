@@ -72,12 +72,22 @@
   color: $grey;
 }
 
+.lang {
+  user-select: all !important;
+}
+
 .stars {
   padding: 5px 10px;
   border-radius: 40px;
-  display: inline-block;
   border: 1px solid $black-color;
+  display: flex;
+  align-items: center;
+  grid-gap: 1px;
   color: #FFD338;
+  user-select: none;
+  .span {
+    user-select: none;
+  }
 }
 
 .text {

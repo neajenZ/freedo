@@ -2,7 +2,12 @@ import styles from "src/components/create-ad/ad-form/ad-form.module.scss";
 import {ImgLoader} from "src/components/img-loader/ui/img-loader.tsx";
 import {useState} from "react";
 import {DeleteBasketIcon} from "src/shared/ui/icons/DeleteBasketIcon.tsx";
-export const CreateAdImg = () => {
+
+interface IProps {
+    setImages: (i: string[]) => void
+}
+
+export const CreateAdImg = ({setImages}: IProps) => {
     const [image, setImage] = useState<File>()
     const [url, setUrl] = useState<string[]>([])
 
@@ -16,6 +21,7 @@ export const CreateAdImg = () => {
                 }
                 for (let i = 0; i < e.currentTarget.files.length; i++) {
                     setUrl([...url, URL.createObjectURL(e.currentTarget.files[i])])
+                    setImages([...url, URL.createObjectURL(e.currentTarget.files[i])])
                     console.log(url)
                 }
             } catch (e) {
@@ -25,9 +31,11 @@ export const CreateAdImg = () => {
     }
 
     const deletePreviewImg = (img: string) => {
-        setUrl(url.filter((z) => {
+        const newData = [...url].filter((z) => {
             return z !== img
-        }))
+        })
+        setUrl(newData)
+        setImages(newData)
     }
 
     return (

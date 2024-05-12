@@ -8,7 +8,7 @@ export interface IUserData {
     last_name: string,
     photo_url: string,
     email: string,
-    date_of_registration: string,
+    date_of_registration: string[] | number[],
     id: string,
 
 }

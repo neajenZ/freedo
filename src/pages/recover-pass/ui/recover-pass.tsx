@@ -2,9 +2,21 @@ import {Card, Grid} from "src/shared/ui";
 import {useNavigate} from "react-router-dom";
 import styles from './recover-pass.module.scss'
 import {useTranslation} from "react-i18next";
+import api from "src/app/api/api.ts";
+import {useState} from "react";
 const RecoverPassPage = () => {
     const navigate = useNavigate()
     const {t} = useTranslation()
+    const [emailValue, setEmail] = useState('')
+    const handleRequest = () => {
+        api.user.getResetPassword({
+            email: emailValue
+        })
+            .then((res) => {
+                console.log(res)
+            })
+    }
+
     return (
         <div className={'container'}>
             <div className={styles.contWrapper}>
@@ -36,8 +48,8 @@ const RecoverPassPage = () => {
                                 </div>
                             </div>
                             <div className={styles.form}>
-                                <input type={'text'} placeholder={t('mail')}/>
-                                <button>{t('recoverPass')}</button>
+                                <input type={'text'} value={emailValue} onChange={(e) => setEmail(e.target.value)} placeholder={t('mail')}/>
+                                <button onClick={handleRequest}>{t('recoverPass')}</button>
                             </div>
                         </Grid>
                     </div>
