@@ -2,6 +2,7 @@ import axios from "axios"
 import Cookies from "js-cookie"
 
 export const refresh = async () => {
+    console.log('refresh')
     try {
         const response = await axios.post(`https://api.freedo.pro/auth/refresh`, {
             refresh_token: Cookies.get('refreshToken')
